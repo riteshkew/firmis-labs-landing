@@ -1,0 +1,1128 @@
+@import "tailwindcss";
+
+/*
+╔══════════════════════════════════════════════════════════════════╗
+║  FIRMIS LABS — ARCHITECTURAL DESIGN SYSTEM                       ║
+║  Swiss Precision × Japanese Minimalism × Haute Couture Restraint ║
+╚══════════════════════════════════════════════════════════════════╝
+*/
+
+/* ================================================================
+   COLOR TOKENS — Architectural Monochrome Luxury
+   ================================================================ */
+
+:root {
+  /* Carbon Spectrum — Primary Blacks */
+  --carbon-black: #0A0A0A;
+  --carbon-deep: #0F0F0F;
+  --carbon-grey: #1A1A1A;
+  --carbon-light: #242424;
+
+  /* Stone Spectrum — Neutral Greys */
+  --stone-grey: #888888;
+  --stone-light: #AAAAAA;
+  --stone-lighter: #CCCCCC;
+
+  /* Paper Spectrum — Whites */
+  --paper-white: #FAFAFA;
+  --pure-white: #FFFFFF;
+
+  /* Gold Accents — Luxury Details */
+  --gold-line: #C4A76A;
+  --gold-hover: #D4B77A;
+  --gold-muted: #B09660;
+  --gold-bright: #E4C78A;
+
+  /* Border System */
+  --border-subtle: #1F1F1F;
+  --border-hover: #2A2A2A;
+  --border-active: #353535;
+  --border-gold: var(--gold-line);
+
+  /* Shadow System */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 4px 16px rgba(196, 167, 106, 0.15);
+
+  /* Gradient System */
+  --gradient-gold: linear-gradient(90deg, transparent 0%, var(--gold-line) 50%, transparent 100%);
+  --gradient-gold-left: linear-gradient(90deg, var(--gold-line) 0%, transparent 100%);
+  --gradient-gold-right: linear-gradient(90deg, transparent 0%, var(--gold-line) 100%);
+  --gradient-carbon: linear-gradient(180deg, var(--carbon-black) 0%, var(--carbon-deep) 100%);
+  --gradient-text-gold: linear-gradient(135deg, var(--gold-muted) 0%, var(--gold-bright) 50%, var(--gold-line) 100%);
+}
+
+/* ================================================================
+   SPACING SYSTEM — 8pt Grid Foundation
+   ================================================================ */
+
+:root {
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* Layout Spacing */
+  --section-padding-y: 6rem;
+  --section-padding-y-lg: 8rem;
+  --container-max-width: 1400px;
+  --container-padding-x: 2rem;
+  --container-padding-x-lg: 4rem;
+}
+
+/* ================================================================
+   TYPOGRAPHY SYSTEM — Hierarchical Elegance
+   ================================================================ */
+
+:root {
+  /* Font Families */
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Font Sizes — Mathematical Progression */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 2rem;        /* 32px */
+  --text-4xl: 2.5rem;      /* 40px */
+  --text-5xl: 3.5rem;      /* 56px */
+  --text-6xl: 4.5rem;      /* 72px */
+  --text-7xl: 6rem;        /* 96px */
+  --text-8xl: 8rem;        /* 128px */
+
+  /* Letter Spacing */
+  --tracking-tight: -0.03em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+
+  /* Line Heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+  --leading-loose: 1.8;
+}
+
+/* ================================================================
+   ANIMATION SYSTEM — Architectural Motion
+   ================================================================ */
+
+:root {
+  /* Durations */
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+  --duration-slower: 900ms;
+
+  /* Easing Functions */
+  --ease-architectural: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ================================================================
+   THEME INTEGRATION — Tailwind CSS Variables
+   ================================================================ */
+
+@theme inline {
+  /* Colors */
+  --color-carbon-black: var(--carbon-black);
+  --color-carbon-deep: var(--carbon-deep);
+  --color-carbon-grey: var(--carbon-grey);
+  --color-carbon-light: var(--carbon-light);
+  --color-stone-grey: var(--stone-grey);
+  --color-stone-light: var(--stone-light);
+  --color-gold: var(--gold-line);
+  --color-gold-hover: var(--gold-hover);
+
+  /* Spacing */
+  --spacing-section: var(--section-padding-y);
+
+  /* Typography */
+  --font-family-display: var(--font-display);
+  --font-family-body: var(--font-body);
+}
+
+/* ================================================================
+   BASE STYLES — Foundation
+   ================================================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--carbon-black);
+  color: var(--paper-white);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ================================================================
+   TYPOGRAPHY STYLES — Elegant Hierarchy
+   ================================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--pure-white);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(var(--text-4xl), 6vw, var(--text-7xl));
+}
+
+h2 {
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-6xl));
+}
+
+h3 {
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-5xl));
+}
+
+h4 {
+  font-size: clamp(var(--text-xl), 3vw, var(--text-4xl));
+}
+
+h5 {
+  font-size: clamp(var(--text-lg), 2.5vw, var(--text-3xl));
+}
+
+h6 {
+  font-size: clamp(var(--text-base), 2vw, var(--text-2xl));
+}
+
+p {
+  color: var(--stone-light);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--pure-white);
+}
+
+em {
+  font-style: italic;
+  color: var(--stone-lighter);
+}
+
+small {
+  font-size: var(--text-sm);
+  color: var(--stone-grey);
+}
+
+/* ================================================================
+   LINK STYLES — Subtle Interaction
+   ================================================================ */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-base) var(--ease-architectural);
+}
+
+a:hover {
+  color: var(--gold-hover);
+}
+
+a:focus-visible {
+  outline: 1px solid var(--gold-line);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ================================================================
+   SELECTION & FOCUS STATES — Gold Accents
+   ================================================================ */
+
+::selection {
+  background-color: var(--gold-line);
+  color: var(--carbon-black);
+}
+
+::-moz-selection {
+  background-color: var(--gold-line);
+  color: var(--carbon-black);
+}
+
+*:focus-visible {
+  outline: 1px solid var(--gold-line);
+  outline-offset: 3px;
+}
+
+/* ================================================================
+   SCROLLBAR STYLING — Minimal & Dark
+   ================================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--carbon-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+  transition: background var(--duration-base) var(--ease-architectural);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--stone-grey);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--gold-line);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-subtle) var(--carbon-black);
+}
+
+/* ================================================================
+   CONTAINER SYSTEM — Responsive Layout
+   ================================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--container-padding-x-lg);
+    padding-right: var(--container-padding-x-lg);
+  }
+}
+
+/* ================================================================
+   GOLD LINE SYSTEM — Signature Design Element
+   ================================================================ */
+
+.gold-line {
+  height: 1px;
+  width: 100%;
+  background: var(--gradient-gold);
+  border: none;
+  margin: 0;
+}
+
+.gold-line-left {
+  height: 1px;
+  width: 100%;
+  background: var(--gradient-gold-left);
+  border: none;
+  margin: 0;
+}
+
+.gold-line-right {
+  height: 1px;
+  width: 100%;
+  background: var(--gradient-gold-right);
+  border: none;
+  margin: 0;
+}
+
+.gold-accent {
+  position: relative;
+}
+
+.gold-accent::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, var(--gold-line) 20%, var(--gold-line) 80%, transparent 100%);
+}
+
+/* ================================================================
+   CARD SYSTEM — Architectural Containers
+   ================================================================ */
+
+.card-architectural {
+  background: var(--carbon-grey);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-8);
+  border-radius: 2px;
+  transition: all var(--duration-base) var(--ease-architectural);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-architectural::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: border-color var(--duration-base) var(--ease-architectural);
+}
+
+.card-architectural:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-architectural:hover::after {
+  border-color: var(--gold-line);
+}
+
+.card-minimal {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-6);
+  border-radius: 0;
+  transition: border-color var(--duration-base) var(--ease-architectural);
+}
+
+.card-minimal:hover {
+  border-color: var(--border-hover);
+}
+
+.card-elevated {
+  background: var(--carbon-deep);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-10);
+  box-shadow: var(--shadow-lg);
+  border-radius: 2px;
+  transition: all var(--duration-slow) var(--ease-architectural);
+}
+
+.card-elevated:hover {
+  box-shadow: var(--shadow-gold);
+  border-color: var(--gold-line);
+}
+
+/* ================================================================
+   BUTTON SYSTEM — Premium Interactions
+   ================================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all var(--duration-base) var(--ease-architectural);
+  white-space: nowrap;
+}
+
+.btn-gold {
+  background: var(--gold-line);
+  color: var(--carbon-black);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-gold:hover {
+  background: var(--gold-hover);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-1px);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--pure-white);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-ghost:hover {
+  border-color: var(--gold-line);
+  color: var(--gold-line);
+}
+
+.btn-ghost:active {
+  background: rgba(196, 167, 106, 0.1);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--pure-white);
+  border: 1px solid var(--gold-line);
+}
+
+.btn-outline:hover {
+  background: var(--gold-line);
+  color: var(--carbon-black);
+}
+
+.btn-minimal {
+  background: transparent;
+  color: var(--stone-light);
+  border: none;
+  padding: var(--space-2) var(--space-4);
+}
+
+.btn-minimal:hover {
+  color: var(--gold-line);
+}
+
+.btn-large {
+  padding: var(--space-6) var(--space-12);
+  font-size: var(--text-base);
+}
+
+.btn-small {
+  padding: var(--space-2) var(--space-6);
+  font-size: var(--text-xs);
+}
+
+/* ================================================================
+   TEXT UTILITIES — Special Typography
+   ================================================================ */
+
+.text-gradient-gold {
+  background: var(--gradient-text-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+}
+
+.text-body {
+  font-family: var(--font-body);
+  letter-spacing: var(--tracking-normal);
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  letter-spacing: -0.01em;
+}
+
+/* ================================================================
+   ANIMATION KEYFRAMES — Smooth Motion
+   ================================================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealLine {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ================================================================
+   ANIMATION UTILITY CLASSES
+   ================================================================ */
+
+.animate-fade-in {
+  animation: fadeIn var(--duration-slow) var(--ease-architectural) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--duration-slow) var(--ease-architectural) forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown var(--duration-slow) var(--ease-architectural) forwards;
+}
+
+.animate-slide-left {
+  animation: slideLeft var(--duration-slow) var(--ease-architectural) forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight var(--duration-slow) var(--ease-architectural) forwards;
+}
+
+.animate-reveal-line {
+  animation: revealLine var(--duration-slower) var(--ease-architectural) forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(196, 167, 106, 0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-scroll-pulse {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--duration-slow) var(--ease-architectural) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--duration-slow) var(--ease-architectural) forwards;
+}
+
+/* Animation Delays */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-600 {
+  animation-delay: 600ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-800 {
+  animation-delay: 800ms;
+}
+
+/* ================================================================
+   HOVER & INTERACTION UTILITIES
+   ================================================================ */
+
+.hover-lift {
+  transition: transform var(--duration-base) var(--ease-architectural);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-scale {
+  transition: transform var(--duration-base) var(--ease-architectural);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-gold {
+  transition: color var(--duration-base) var(--ease-architectural);
+}
+
+.hover-gold:hover {
+  color: var(--gold-line);
+}
+
+.hover-border-gold {
+  transition: border-color var(--duration-base) var(--ease-architectural);
+}
+
+.hover-border-gold:hover {
+  border-color: var(--gold-line);
+}
+
+.hover-glow {
+  transition: box-shadow var(--duration-base) var(--ease-architectural);
+}
+
+.hover-glow:hover {
+  box-shadow: var(--shadow-gold);
+}
+
+/* ================================================================
+   BACKGROUND UTILITIES
+   ================================================================ */
+
+.bg-carbon-black {
+  background-color: var(--carbon-black);
+}
+
+.bg-carbon-deep {
+  background-color: var(--carbon-deep);
+}
+
+.bg-carbon-grey {
+  background-color: var(--carbon-grey);
+}
+
+.bg-carbon-light {
+  background-color: var(--carbon-light);
+}
+
+.bg-gradient-carbon {
+  background: var(--gradient-carbon);
+}
+
+/* ================================================================
+   BORDER UTILITIES
+   ================================================================ */
+
+.border-subtle {
+  border-color: var(--border-subtle);
+}
+
+.border-hover {
+  border-color: var(--border-hover);
+}
+
+.border-gold {
+  border-color: var(--gold-line);
+}
+
+/* ================================================================
+   TEXT COLOR UTILITIES
+   ================================================================ */
+
+.text-white {
+  color: var(--pure-white);
+}
+
+.text-paper {
+  color: var(--paper-white);
+}
+
+.text-stone {
+  color: var(--stone-grey);
+}
+
+.text-stone-light {
+  color: var(--stone-light);
+}
+
+.text-gold {
+  color: var(--gold-line);
+}
+
+.text-muted {
+  color: var(--stone-grey);
+  font-size: var(--text-sm);
+}
+
+/* ================================================================
+   LAYOUT UTILITIES
+   ================================================================ */
+
+.section-padding {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: var(--section-padding-y-lg);
+    padding-bottom: var(--section-padding-y-lg);
+  }
+}
+
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+}
+
+.grid-auto-fill {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-8);
+}
+
+/* ================================================================
+   ACCESSIBILITY UTILITIES
+   ================================================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus-visible-ring:focus-visible {
+  outline: 2px solid var(--gold-line);
+  outline-offset: 4px;
+}
+
+/* ================================================================
+   REDUCED MOTION — Accessibility
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ================================================================
+   RESPONSIVE TYPOGRAPHY — Mobile Optimization
+   ================================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: 4rem;
+    --container-padding-x: 1.5rem;
+  }
+
+  .btn {
+    padding: var(--space-3) var(--space-6);
+  }
+
+  .btn-large {
+    padding: var(--space-5) var(--space-10);
+  }
+
+  .card-architectural,
+  .card-elevated {
+    padding: var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding-y: 3rem;
+    --container-padding-x: 1rem;
+  }
+
+  .grid-auto-fit,
+  .grid-auto-fill {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================================================
+   PRINT STYLES — Document Export
+   ================================================================ */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .gold-line,
+  .gold-accent,
+  .hover-lift,
+  .hover-scale {
+    display: none;
+  }
+
+  .card-architectural,
+  .card-elevated {
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+}
+
+/* ================================================================
+   HOMEPAGE ANIMATIONS — Staggered Reveals
+   ================================================================ */
+
+/* Hero Section */
+.hero-headline {
+  opacity: 0;
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.hero-subheadline {
+  opacity: 0;
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.hero-ctas {
+  opacity: 0;
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+.scroll-indicator {
+  opacity: 0;
+  animation: fadeIn 1s ease-out 1s forwards;
+}
+
+/* Studio Section */
+.studio-header {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.studio-cards article:nth-child(1) {
+  opacity: 0;
+  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.studio-cards article:nth-child(2) {
+  opacity: 0;
+  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+
+.studio-cards article:nth-child(3) {
+  opacity: 0;
+  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+/* Products Section */
+.products-header {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.product-card:nth-child(1) {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.product-card:nth-child(2) {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+
+.product-card:nth-child(3) {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+/* Craft Section */
+.craft-header {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.craft-timeline {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.4s forwards;
+}
+
+.craft-step:nth-child(1) {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.craft-step:nth-child(2) {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+}
+
+.craft-step:nth-child(3) {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+}
+
+.craft-step:nth-child(4) {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards;
+}
+
+/* CTA Section */
+.cta-card {
+  opacity: 0;
+  animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+/* Disable animations on mobile for performance */
+@media (max-width: 768px) {
+  .hero-headline,
+  .hero-subheadline,
+  .hero-ctas,
+  .scroll-indicator,
+  .studio-header,
+  .studio-cards article,
+  .products-header,
+  .product-card,
+  .craft-header,
+  .craft-timeline,
+  .craft-step,
+  .cta-card {
+    opacity: 1;
+    animation: none;
+  }
+}

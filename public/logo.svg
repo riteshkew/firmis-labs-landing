@@ -1,0 +1,31 @@
+<svg 
+    width="180" 
+    height="180" 
+    viewBox="0 0 180 180" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Outer Frame -->
+  <path 
+    d="M20 20 H160 V160 H20 Z" 
+    stroke="#0f172a" 
+    stroke-width="16"
+    stroke-linejoin="miter"
+  />
+
+  <!-- Inner F vertical stroke -->
+  <path 
+    d="M90 20 V160" 
+    stroke="#0f172a" 
+    stroke-width="16" 
+    stroke-linejoin="miter"
+  />
+
+  <!-- Inner F mid-arm -->
+  <path 
+    d="M90 90 H130" 
+    stroke="#0f172a" 
+    stroke-width="16" 
+    stroke-linejoin="miter"
+  />
+</svg>
