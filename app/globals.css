@@ -2,124 +2,116 @@
 
 /*
 ╔══════════════════════════════════════════════════════════════════╗
-║  FIRMIS LABS — ARCHITECTURAL DESIGN SYSTEM                       ║
-║  Swiss Precision × Japanese Minimalism × Haute Couture Restraint ║
+║  ANTHROPIC-INSPIRED DESIGN SYSTEM                                ║
+║  Technical Minimalism × Rauno/Paco Typography × Professional    ║
 ╚══════════════════════════════════════════════════════════════════╝
 */
 
 /* ================================================================
-   COLOR TOKENS — Architectural Monochrome Luxury
+   COLOR SYSTEM — Anthropic's Warm Technical Palette
    ================================================================ */
 
 :root {
-  /* Carbon Spectrum — Primary Blacks */
-  --carbon-black: #0A0A0A;
-  --carbon-deep: #0F0F0F;
-  --carbon-grey: #1A1A1A;
-  --carbon-light: #242424;
+  /* Backgrounds — Deep carbon blacks */
+  --bg-primary: #0C0C0C;
+  --bg-surface: #141414;
+  --bg-elevated: #1A1A1A;
+  --bg-hover: #1F1F1F;
 
-  /* Stone Spectrum — Neutral Greys */
-  --stone-grey: #888888;
-  --stone-light: #AAAAAA;
-  --stone-lighter: #CCCCCC;
+  /* Text — High contrast hierarchy */
+  --text-primary: #FAFAF9;
+  --text-secondary: #A3A3A3;
+  --text-muted: #737373;
+  --text-subtle: #525252;
 
-  /* Paper Spectrum — Whites */
-  --paper-white: #FAFAFA;
-  --pure-white: #FFFFFF;
+  /* Accent — Anthropic's burnt orange */
+  --accent: #D97757;
+  --accent-hover: #E08B6D;
+  --accent-muted: rgba(217, 119, 87, 0.15);
 
-  /* Gold Accents — Luxury Details */
-  --gold-line: #C4A76A;
-  --gold-hover: #D4B77A;
-  --gold-muted: #B09660;
-  --gold-bright: #E4C78A;
+  /* Borders — Subtle separators */
+  --border-subtle: #262626;
+  --border-default: #333333;
+  --border-hover: #404040;
 
-  /* Border System */
-  --border-subtle: #1F1F1F;
-  --border-hover: #2A2A2A;
-  --border-active: #353535;
-  --border-gold: var(--gold-line);
+  /* Selection — Warm accent */
+  --selection-bg: rgba(217, 119, 87, 0.3);
+  --selection-text: #FAFAF9;
 
-  /* Shadow System */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-gold: 0 4px 16px rgba(196, 167, 106, 0.15);
-
-  /* Gradient System */
-  --gradient-gold: linear-gradient(90deg, transparent 0%, var(--gold-line) 50%, transparent 100%);
-  --gradient-gold-left: linear-gradient(90deg, var(--gold-line) 0%, transparent 100%);
-  --gradient-gold-right: linear-gradient(90deg, transparent 0%, var(--gold-line) 100%);
-  --gradient-carbon: linear-gradient(180deg, var(--carbon-black) 0%, var(--carbon-deep) 100%);
-  --gradient-text-gold: linear-gradient(135deg, var(--gold-muted) 0%, var(--gold-bright) 50%, var(--gold-line) 100%);
+  /* Shadows — Subtle depth */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-accent: 0 4px 16px rgba(217, 119, 87, 0.2);
 }
 
 /* ================================================================
-   SPACING SYSTEM — 8pt Grid Foundation
+   TYPOGRAPHY SYSTEM — Fluid & Hierarchical
    ================================================================ */
 
 :root {
-  --space-1: 0.25rem;   /* 4px */
-  --space-2: 0.5rem;    /* 8px */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-5: 1.25rem;   /* 20px */
-  --space-6: 1.5rem;    /* 24px */
-  --space-8: 2rem;      /* 32px */
-  --space-10: 2.5rem;   /* 40px */
-  --space-12: 3rem;     /* 48px */
-  --space-16: 4rem;     /* 64px */
-  --space-20: 5rem;     /* 80px */
-  --space-24: 6rem;     /* 96px */
-  --space-32: 8rem;     /* 128px */
+  /* Font Stacks — System-first approach */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Consolas', 'Liberation Mono', monospace;
 
-  /* Layout Spacing */
-  --section-padding-y: 6rem;
-  --section-padding-y-lg: 8rem;
-  --container-max-width: 1400px;
-  --container-padding-x: 2rem;
-  --container-padding-x-lg: 4rem;
-}
+  /* Fluid Type Scale — Responsive with clamp() */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+  --text-3xl: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  --text-4xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+  --text-5xl: clamp(3rem, 2rem + 5vw, 5rem);
 
-/* ================================================================
-   TYPOGRAPHY SYSTEM — Hierarchical Elegance
-   ================================================================ */
-
-:root {
-  /* Font Families */
-  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-
-  /* Font Sizes — Mathematical Progression */
-  --text-xs: 0.75rem;      /* 12px */
-  --text-sm: 0.875rem;     /* 14px */
-  --text-base: 1rem;       /* 16px */
-  --text-lg: 1.125rem;     /* 18px */
-  --text-xl: 1.25rem;      /* 20px */
-  --text-2xl: 1.5rem;      /* 24px */
-  --text-3xl: 2rem;        /* 32px */
-  --text-4xl: 2.5rem;      /* 40px */
-  --text-5xl: 3.5rem;      /* 56px */
-  --text-6xl: 4.5rem;      /* 72px */
-  --text-7xl: 6rem;        /* 96px */
-  --text-8xl: 8rem;        /* 128px */
-
-  /* Letter Spacing */
-  --tracking-tight: -0.03em;
+  /* Letter Spacing — Optical refinement */
+  --tracking-tight: -0.02em;
   --tracking-normal: 0;
-  --tracking-wide: 0.025em;
-  --tracking-wider: 0.05em;
+  --tracking-wide: 0.01em;
 
-  /* Line Heights */
+  /* Line Heights — Rhythm & readability */
   --leading-tight: 1.1;
-  --leading-snug: 1.3;
+  --leading-snug: 1.2;
   --leading-normal: 1.5;
   --leading-relaxed: 1.6;
-  --leading-loose: 1.8;
+  --leading-loose: 1.7;
 }
 
 /* ================================================================
-   ANIMATION SYSTEM — Architectural Motion
+   SPACING SYSTEM — Fluid & Consistent
+   ================================================================ */
+
+:root {
+  /* Fixed Spacing — Precise control */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Fluid Spacing — Responsive */
+  --space-xs: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
+  --space-sm: clamp(0.75rem, 0.6rem + 0.75vw, 1rem);
+  --space-md: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 1rem + 2.5vw, 2.5rem);
+  --space-xl: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+  --space-2xl: clamp(3rem, 2rem + 5vw, 6rem);
+  --space-3xl: clamp(4rem, 2rem + 10vw, 8rem);
+
+  /* Layout Spacing */
+  --container-max: 1200px;
+  --container-padding: clamp(1.5rem, 1rem + 4vw, 5rem);
+  --section-gap: clamp(4rem, 2rem + 10vw, 8rem);
+}
+
+/* ================================================================
+   ANIMATION SYSTEM — Smooth & Refined
    ================================================================ */
 
 :root {
@@ -127,37 +119,13 @@
   --duration-instant: 100ms;
   --duration-fast: 150ms;
   --duration-base: 300ms;
-  --duration-slow: 600ms;
-  --duration-slower: 900ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
 
-  /* Easing Functions */
-  --ease-architectural: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Easing Functions — Natural motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* ================================================================
-   THEME INTEGRATION — Tailwind CSS Variables
-   ================================================================ */
-
-@theme inline {
-  /* Colors */
-  --color-carbon-black: var(--carbon-black);
-  --color-carbon-deep: var(--carbon-deep);
-  --color-carbon-grey: var(--carbon-grey);
-  --color-carbon-light: var(--carbon-light);
-  --color-stone-grey: var(--stone-grey);
-  --color-stone-light: var(--stone-light);
-  --color-gold: var(--gold-line);
-  --color-gold-hover: var(--gold-hover);
-
-  /* Spacing */
-  --spacing-section: var(--section-padding-y);
-
-  /* Typography */
-  --font-family-display: var(--font-display);
-  --font-family-body: var(--font-body);
 }
 
 /* ================================================================
@@ -180,9 +148,9 @@ html {
 }
 
 body {
-  background-color: var(--carbon-black);
-  color: var(--paper-white);
-  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: var(--leading-relaxed);
   min-height: 100vh;
@@ -190,104 +158,132 @@ body {
 }
 
 /* ================================================================
-   TYPOGRAPHY STYLES — Elegant Hierarchy
+   TYPOGRAPHY — Semantic Hierarchy
    ================================================================ */
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 500;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
-  color: var(--pure-white);
-  margin: 0;
+  color: var(--text-primary);
 }
 
 h1 {
-  font-size: clamp(var(--text-4xl), 6vw, var(--text-7xl));
+  font-size: var(--text-5xl);
 }
 
 h2 {
-  font-size: clamp(var(--text-3xl), 5vw, var(--text-6xl));
+  font-size: var(--text-4xl);
 }
 
 h3 {
-  font-size: clamp(var(--text-2xl), 4vw, var(--text-5xl));
+  font-size: var(--text-3xl);
 }
 
 h4 {
-  font-size: clamp(var(--text-xl), 3vw, var(--text-4xl));
+  font-size: var(--text-2xl);
 }
 
 h5 {
-  font-size: clamp(var(--text-lg), 2.5vw, var(--text-3xl));
+  font-size: var(--text-xl);
 }
 
 h6 {
-  font-size: clamp(var(--text-base), 2vw, var(--text-2xl));
+  font-size: var(--text-lg);
 }
 
 p {
-  color: var(--stone-light);
+  color: var(--text-secondary);
   line-height: var(--leading-relaxed);
-  margin: 0;
 }
 
-strong {
+strong,
+b {
   font-weight: 600;
-  color: var(--pure-white);
+  color: var(--text-primary);
 }
 
-em {
+em,
+i {
   font-style: italic;
-  color: var(--stone-lighter);
 }
 
 small {
   font-size: var(--text-sm);
-  color: var(--stone-grey);
+  color: var(--text-muted);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0.125rem 0.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.25rem;
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  padding: var(--space-4);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  border: none;
 }
 
 /* ================================================================
-   LINK STYLES — Subtle Interaction
+   LINKS — Refined Interaction
    ================================================================ */
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--duration-base) var(--ease-architectural);
+  transition: color var(--duration-base) var(--ease-out);
 }
 
 a:hover {
-  color: var(--gold-hover);
+  color: var(--accent);
 }
 
 a:focus-visible {
-  outline: 1px solid var(--gold-line);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
 /* ================================================================
-   SELECTION & FOCUS STATES — Gold Accents
+   SELECTION & FOCUS — Warm Accents
    ================================================================ */
 
 ::selection {
-  background-color: var(--gold-line);
-  color: var(--carbon-black);
+  background-color: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 ::-moz-selection {
-  background-color: var(--gold-line);
-  color: var(--carbon-black);
+  background-color: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 *:focus-visible {
-  outline: 1px solid var(--gold-line);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
 /* ================================================================
-   SCROLLBAR STYLING — Minimal & Dark
+   SCROLLBAR — Minimal & Refined
    ================================================================ */
 
 ::-webkit-scrollbar {
@@ -296,264 +292,30 @@ a:focus-visible {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--carbon-black);
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--border-subtle);
   border-radius: 4px;
-  transition: background var(--duration-base) var(--ease-architectural);
+  transition: background var(--duration-base) var(--ease-out);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--stone-grey);
+  background: var(--border-default);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: var(--gold-line);
+  background: var(--accent);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--border-subtle) var(--carbon-black);
+  scrollbar-color: var(--border-subtle) var(--bg-primary);
 }
 
 /* ================================================================
-   CONTAINER SYSTEM — Responsive Layout
-   ================================================================ */
-
-.container {
-  width: 100%;
-  max-width: var(--container-max-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container-padding-x);
-  padding-right: var(--container-padding-x);
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding-left: var(--container-padding-x-lg);
-    padding-right: var(--container-padding-x-lg);
-  }
-}
-
-/* ================================================================
-   GOLD LINE SYSTEM — Signature Design Element
-   ================================================================ */
-
-.gold-line {
-  height: 1px;
-  width: 100%;
-  background: var(--gradient-gold);
-  border: none;
-  margin: 0;
-}
-
-.gold-line-left {
-  height: 1px;
-  width: 100%;
-  background: var(--gradient-gold-left);
-  border: none;
-  margin: 0;
-}
-
-.gold-line-right {
-  height: 1px;
-  width: 100%;
-  background: var(--gradient-gold-right);
-  border: none;
-  margin: 0;
-}
-
-.gold-accent {
-  position: relative;
-}
-
-.gold-accent::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent 0%, var(--gold-line) 20%, var(--gold-line) 80%, transparent 100%);
-}
-
-/* ================================================================
-   CARD SYSTEM — Architectural Containers
-   ================================================================ */
-
-.card-architectural {
-  background: var(--carbon-grey);
-  border: 1px solid var(--border-subtle);
-  padding: var(--space-8);
-  border-radius: 2px;
-  transition: all var(--duration-base) var(--ease-architectural);
-  position: relative;
-  overflow: hidden;
-}
-
-.card-architectural::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid transparent;
-  pointer-events: none;
-  transition: border-color var(--duration-base) var(--ease-architectural);
-}
-
-.card-architectural:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-
-.card-architectural:hover::after {
-  border-color: var(--gold-line);
-}
-
-.card-minimal {
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  padding: var(--space-6);
-  border-radius: 0;
-  transition: border-color var(--duration-base) var(--ease-architectural);
-}
-
-.card-minimal:hover {
-  border-color: var(--border-hover);
-}
-
-.card-elevated {
-  background: var(--carbon-deep);
-  border: 1px solid var(--border-subtle);
-  padding: var(--space-10);
-  box-shadow: var(--shadow-lg);
-  border-radius: 2px;
-  transition: all var(--duration-slow) var(--ease-architectural);
-}
-
-.card-elevated:hover {
-  box-shadow: var(--shadow-gold);
-  border-color: var(--gold-line);
-}
-
-/* ================================================================
-   BUTTON SYSTEM — Premium Interactions
-   ================================================================ */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  padding: var(--space-4) var(--space-8);
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-  transition: all var(--duration-base) var(--ease-architectural);
-  white-space: nowrap;
-}
-
-.btn-gold {
-  background: var(--gold-line);
-  color: var(--carbon-black);
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-gold:hover {
-  background: var(--gold-hover);
-  box-shadow: var(--shadow-gold);
-  transform: translateY(-1px);
-}
-
-.btn-gold:active {
-  transform: translateY(0);
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--pure-white);
-  border: 1px solid var(--border-subtle);
-}
-
-.btn-ghost:hover {
-  border-color: var(--gold-line);
-  color: var(--gold-line);
-}
-
-.btn-ghost:active {
-  background: rgba(196, 167, 106, 0.1);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--pure-white);
-  border: 1px solid var(--gold-line);
-}
-
-.btn-outline:hover {
-  background: var(--gold-line);
-  color: var(--carbon-black);
-}
-
-.btn-minimal {
-  background: transparent;
-  color: var(--stone-light);
-  border: none;
-  padding: var(--space-2) var(--space-4);
-}
-
-.btn-minimal:hover {
-  color: var(--gold-line);
-}
-
-.btn-large {
-  padding: var(--space-6) var(--space-12);
-  font-size: var(--text-base);
-}
-
-.btn-small {
-  padding: var(--space-2) var(--space-6);
-  font-size: var(--text-xs);
-}
-
-/* ================================================================
-   TEXT UTILITIES — Special Typography
-   ================================================================ */
-
-.text-gradient-gold {
-  background: var(--gradient-text-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-display {
-  font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: var(--tracking-tight);
-}
-
-.text-body {
-  font-family: var(--font-body);
-  letter-spacing: var(--tracking-normal);
-}
-
-.text-mono {
-  font-family: var(--font-mono);
-  font-size: 0.9em;
-  letter-spacing: -0.01em;
-}
-
-/* ================================================================
-   ANIMATION KEYFRAMES — Smooth Motion
+   ANIMATION KEYFRAMES
    ================================================================ */
 
 @keyframes fadeIn {
@@ -568,7 +330,7 @@ a:focus-visible {
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -579,7 +341,7 @@ a:focus-visible {
 @keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-24px);
   }
   to {
     opacity: 1;
@@ -590,7 +352,7 @@ a:focus-visible {
 @keyframes slideLeft {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(24px);
   }
   to {
     opacity: 1;
@@ -601,71 +363,11 @@ a:focus-visible {
 @keyframes slideRight {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-24px);
   }
   to {
     opacity: 1;
     transform: translateX(0);
-  }
-}
-
-@keyframes revealLine {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    width: 100%;
-    opacity: 1;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes scrollPulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(8px);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -680,61 +382,69 @@ a:focus-visible {
   }
 }
 
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 /* ================================================================
-   ANIMATION UTILITY CLASSES
+   UTILITY CLASSES — Animations
    ================================================================ */
 
 .animate-fade-in {
-  animation: fadeIn var(--duration-slow) var(--ease-architectural) forwards;
+  animation: fadeIn var(--duration-slow) var(--ease-out) forwards;
 }
 
 .animate-slide-up {
-  animation: slideUp var(--duration-slow) var(--ease-architectural) forwards;
+  animation: slideUp var(--duration-slow) var(--ease-out) forwards;
 }
 
 .animate-slide-down {
-  animation: slideDown var(--duration-slow) var(--ease-architectural) forwards;
+  animation: slideDown var(--duration-slow) var(--ease-out) forwards;
 }
 
 .animate-slide-left {
-  animation: slideLeft var(--duration-slow) var(--ease-architectural) forwards;
+  animation: slideLeft var(--duration-slow) var(--ease-out) forwards;
 }
 
 .animate-slide-right {
-  animation: slideRight var(--duration-slow) var(--ease-architectural) forwards;
+  animation: slideRight var(--duration-slow) var(--ease-out) forwards;
 }
 
-.animate-reveal-line {
-  animation: revealLine var(--duration-slower) var(--ease-architectural) forwards;
-}
-
-.animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(196, 167, 106, 0.2), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+.animate-scale-in {
+  animation: scaleIn var(--duration-slow) var(--ease-out) forwards;
 }
 
 .animate-pulse {
   animation: pulse 2s ease-in-out infinite;
 }
 
-.animate-scroll-pulse {
-  animation: scrollPulse 2s ease-in-out infinite;
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent-muted) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp var(--duration-slow) var(--ease-architectural) forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn var(--duration-slow) var(--ease-architectural) forwards;
-}
-
-/* Animation Delays */
+/* Animation Delays — Staggered reveals */
 .delay-100 {
   animation-delay: 100ms;
 }
@@ -768,11 +478,54 @@ a:focus-visible {
 }
 
 /* ================================================================
-   HOVER & INTERACTION UTILITIES
+   UTILITY CLASSES — Text
+   ================================================================ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  letter-spacing: -0.01em;
+}
+
+/* ================================================================
+   UTILITY CLASSES — Layout
+   ================================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.section {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+/* ================================================================
+   UTILITY CLASSES — Interaction
    ================================================================ */
 
 .hover-lift {
-  transition: transform var(--duration-base) var(--ease-architectural);
+  transition: transform var(--duration-base) var(--ease-out);
 }
 
 .hover-lift:hover {
@@ -780,136 +533,23 @@ a:focus-visible {
 }
 
 .hover-scale {
-  transition: transform var(--duration-base) var(--ease-architectural);
+  transition: transform var(--duration-base) var(--ease-out);
 }
 
 .hover-scale:hover {
   transform: scale(1.02);
 }
 
-.hover-gold {
-  transition: color var(--duration-base) var(--ease-architectural);
-}
-
-.hover-gold:hover {
-  color: var(--gold-line);
-}
-
-.hover-border-gold {
-  transition: border-color var(--duration-base) var(--ease-architectural);
-}
-
-.hover-border-gold:hover {
-  border-color: var(--gold-line);
-}
-
 .hover-glow {
-  transition: box-shadow var(--duration-base) var(--ease-architectural);
+  transition: box-shadow var(--duration-base) var(--ease-out);
 }
 
 .hover-glow:hover {
-  box-shadow: var(--shadow-gold);
+  box-shadow: var(--shadow-accent);
 }
 
 /* ================================================================
-   BACKGROUND UTILITIES
-   ================================================================ */
-
-.bg-carbon-black {
-  background-color: var(--carbon-black);
-}
-
-.bg-carbon-deep {
-  background-color: var(--carbon-deep);
-}
-
-.bg-carbon-grey {
-  background-color: var(--carbon-grey);
-}
-
-.bg-carbon-light {
-  background-color: var(--carbon-light);
-}
-
-.bg-gradient-carbon {
-  background: var(--gradient-carbon);
-}
-
-/* ================================================================
-   BORDER UTILITIES
-   ================================================================ */
-
-.border-subtle {
-  border-color: var(--border-subtle);
-}
-
-.border-hover {
-  border-color: var(--border-hover);
-}
-
-.border-gold {
-  border-color: var(--gold-line);
-}
-
-/* ================================================================
-   TEXT COLOR UTILITIES
-   ================================================================ */
-
-.text-white {
-  color: var(--pure-white);
-}
-
-.text-paper {
-  color: var(--paper-white);
-}
-
-.text-stone {
-  color: var(--stone-grey);
-}
-
-.text-stone-light {
-  color: var(--stone-light);
-}
-
-.text-gold {
-  color: var(--gold-line);
-}
-
-.text-muted {
-  color: var(--stone-grey);
-  font-size: var(--text-sm);
-}
-
-/* ================================================================
-   LAYOUT UTILITIES
-   ================================================================ */
-
-.section-padding {
-  padding-top: var(--section-padding-y);
-  padding-bottom: var(--section-padding-y);
-}
-
-@media (min-width: 1024px) {
-  .section-padding {
-    padding-top: var(--section-padding-y-lg);
-    padding-bottom: var(--section-padding-y-lg);
-  }
-}
-
-.grid-auto-fit {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-8);
-}
-
-.grid-auto-fill {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-8);
-}
-
-/* ================================================================
-   ACCESSIBILITY UTILITIES
+   UTILITY CLASSES — Accessibility
    ================================================================ */
 
 .sr-only {
@@ -924,9 +564,22 @@ a:focus-visible {
   border-width: 0;
 }
 
-.focus-visible-ring:focus-visible {
-  outline: 2px solid var(--gold-line);
-  outline-offset: 4px;
+/* ================================================================
+   GRAIN TEXTURE — Subtle noise overlay (optional)
+   ================================================================ */
+
+.grain {
+  position: relative;
+}
+
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  mix-blend-mode: overlay;
 }
 
 /* ================================================================
@@ -945,62 +598,19 @@ a:focus-visible {
 }
 
 /* ================================================================
-   RESPONSIVE TYPOGRAPHY — Mobile Optimization
+   RESPONSIVE ADJUSTMENTS
    ================================================================ */
 
 @media (max-width: 768px) {
   :root {
-    --section-padding-y: 4rem;
-    --container-padding-x: 1.5rem;
-  }
-
-  .btn {
-    padding: var(--space-3) var(--space-6);
-  }
-
-  .btn-large {
-    padding: var(--space-5) var(--space-10);
-  }
-
-  .card-architectural,
-  .card-elevated {
-    padding: var(--space-6);
+    --section-gap: clamp(3rem, 1.5rem + 7.5vw, 5rem);
+    --container-padding: clamp(1rem, 0.75rem + 1.25vw, 2rem);
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --section-padding-y: 3rem;
-    --container-padding-x: 1rem;
-  }
-
-  .grid-auto-fit,
-  .grid-auto-fill {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ================================================================
-   PRINT STYLES — Document Export
-   ================================================================ */
-
-@media print {
-  body {
-    background: white;
-    color: black;
-  }
-
-  .gold-line,
-  .gold-accent,
-  .hover-lift,
-  .hover-scale {
-    display: none;
-  }
-
-  .card-architectural,
-  .card-elevated {
-    border: 1px solid #ccc;
-    box-shadow: none;
+    --section-gap: clamp(2rem, 1rem + 5vw, 4rem);
   }
 }
 
@@ -1024,32 +634,6 @@ a:focus-visible {
   animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
 }
 
-.scroll-indicator {
-  opacity: 0;
-  animation: fadeIn 1s ease-out 1s forwards;
-}
-
-/* Studio Section */
-.studio-header {
-  opacity: 0;
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-}
-
-.studio-cards article:nth-child(1) {
-  opacity: 0;
-  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-}
-
-.studio-cards article:nth-child(2) {
-  opacity: 0;
-  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
-}
-
-.studio-cards article:nth-child(3) {
-  opacity: 0;
-  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-}
-
 /* Products Section */
 .products-header {
   opacity: 0;
@@ -1071,41 +655,46 @@ a:focus-visible {
   animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
 }
 
-/* Craft Section */
-.craft-header {
+/* Approach Section */
+.approach-header {
   opacity: 0;
   animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
 }
 
-.craft-timeline {
+.approach-step:nth-child(1) {
   opacity: 0;
-  animation: fadeIn 0.8s ease-out 0.4s forwards;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
 }
 
-.craft-step:nth-child(1) {
+.approach-step:nth-child(2) {
   opacity: 0;
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
 }
 
-.craft-step:nth-child(2) {
+.approach-step:nth-child(3) {
   opacity: 0;
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
 }
 
-.craft-step:nth-child(3) {
+.approach-step:nth-child(4) {
   opacity: 0;
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
-}
-
-.craft-step:nth-child(4) {
-  opacity: 0;
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
 }
 
 /* CTA Section */
-.cta-card {
+.cta-headline {
   opacity: 0;
-  animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.cta-subheadline {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.cta-button {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
 }
 
 /* Disable animations on mobile for performance */
@@ -1113,16 +702,42 @@ a:focus-visible {
   .hero-headline,
   .hero-subheadline,
   .hero-ctas,
-  .scroll-indicator,
-  .studio-header,
-  .studio-cards article,
   .products-header,
   .product-card,
-  .craft-header,
-  .craft-timeline,
-  .craft-step,
-  .cta-card {
+  .approach-header,
+  .approach-step,
+  .cta-headline,
+  .cta-subheadline,
+  .cta-button {
     opacity: 1;
     animation: none;
+  }
+}
+
+/* ================================================================
+   PRINT STYLES
+   ================================================================ */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-slide-down,
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-scale-in,
+  .animate-pulse,
+  .animate-shimmer {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

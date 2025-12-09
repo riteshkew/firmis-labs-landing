@@ -2,226 +2,184 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Engineering Atelier',
+  title: 'About - Firmis Labs',
   description:
-    'A multi-product studio dedicated to precision software. We craft focused tools with intention, replacing complexity with clarity.',
+    'A multi-product studio building focused tools for practitioners. Precision over feature bloat. Reliability is non-negotiable.',
 }
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
-      <div className="mx-auto max-w-5xl px-6 py-24 sm:px-8">
-        {/* HERO SECTION */}
-        <section className="mb-24">
-          <h1 className="mb-6 font-serif text-7xl font-light tracking-tight text-white sm:text-8xl lg:text-9xl">
+    <div className="min-h-screen bg-[#0C0C0C]">
+      <div className="mx-auto max-w-3xl px-6 py-16 sm:px-8 sm:py-24">
+        {/* HERO */}
+        <section className="mb-20 pt-8 sm:mb-32 sm:pt-16">
+          <h1
+            className="mb-6 font-light tracking-tight text-[#FAFAF9]"
+            style={{
+              fontSize: 'clamp(2rem, 1.5rem + 3vw, 3.5rem)',
+              lineHeight: '1.1',
+            }}
+          >
             Engineering Atelier
           </h1>
-          <p className="mb-12 text-2xl leading-relaxed text-[#E5E5E5] sm:text-3xl">
-            A multi-product studio dedicated to precision software
-          </p>
-          <div className="h-px bg-gradient-to-r from-transparent via-[#C4A76A] to-transparent" />
         </section>
 
-        {/* PHILOSOPHY SECTION */}
-        <section className="mb-24 py-24">
-          <h2 className="mb-16 font-serif text-5xl font-light tracking-tight text-white sm:text-6xl">
-            What We Believe
-          </h2>
-          <div className="grid gap-8 md:grid-cols-3">
-            {/* Belief Card 1 */}
-            <div className="rounded-lg border border-[#1F1F1F] bg-[#1A1A1A] p-8 transition-all hover:border-[#C4A76A]/30">
-              <div className="mb-4 h-1 w-12 bg-[#C4A76A]" />
-              <h3 className="mb-4 font-serif text-2xl font-light text-white">
-                Software should be invisible
-              </h3>
-              <p className="leading-relaxed text-[#E5E5E5]">
+        {/* PHILOSOPHY - PROSE LAYOUT */}
+        <section className="mb-20 sm:mb-32">
+          <div className="prose-invert max-w-none">
+            <p className="mb-6 text-lg leading-[1.7] text-[#A3A3A3]">
+              Firmis Labs operates as a multi-product studio. We build focused
+              tools for practitioners who need software that{' '}
+              <span className="text-[#FAFAF9]">works</span>, not software that
+              markets well.
+            </p>
+
+            <p className="mb-6 text-lg leading-[1.7] text-[#A3A3A3]">
+              Each product we ship is purpose-built for a specific problem.{' '}
+              <span className="text-[#FAFAF9]">
+                Precision over feature bloat.
+              </span>{' '}
+              We don't build platforms or all-in-one solutions. We build tools
+              that do one thing exceptionally well.
+            </p>
+
+            <p className="mb-6 text-lg leading-[1.7] text-[#A3A3A3]">
+              Our software is built for practitioners, not personas. The people
+              who use our tools every day—designers, developers,
+              operators—demand reliability. So we make{' '}
+              <span className="text-[#FAFAF9]">reliability non-negotiable.</span>
+            </p>
+          </div>
+        </section>
+
+        {/* BELIEFS - MINIMAL STYLED QUOTES */}
+        <section className="mb-20 sm:mb-32">
+          <div className="space-y-10">
+            <div className="border-l-2 border-[#262626] pl-6">
+              <p className="mb-2 text-xl leading-[1.5] text-[#FAFAF9]">
+                "Software should be invisible"
+              </p>
+              <p className="text-base leading-[1.7] text-[#737373]">
                 The best tools disappear into your workflow. They don't demand
-                attention—they simply work.
+                attention.
               </p>
             </div>
 
-            {/* Belief Card 2 */}
-            <div className="rounded-lg border border-[#1F1F1F] bg-[#1A1A1A] p-8 transition-all hover:border-[#C4A76A]/30">
-              <div className="mb-4 h-1 w-12 bg-[#C4A76A]" />
-              <h3 className="mb-4 font-serif text-2xl font-light text-white">
-                Complexity is a design failure
-              </h3>
-              <p className="leading-relaxed text-[#E5E5E5]">
-                Every feature we ship must earn its place. We build with
-                intention, not accumulation.
+            <div className="border-l-2 border-[#262626] pl-6">
+              <p className="mb-2 text-xl leading-[1.5] text-[#FAFAF9]">
+                "Complexity is a design failure"
+              </p>
+              <p className="text-base leading-[1.7] text-[#737373]">
+                Every feature must earn its place. We build with intention, not
+                accumulation.
               </p>
             </div>
 
-            {/* Belief Card 3 */}
-            <div className="rounded-lg border border-[#1F1F1F] bg-[#1A1A1A] p-8 transition-all hover:border-[#C4A76A]/30">
-              <div className="mb-4 h-1 w-12 bg-[#C4A76A]" />
-              <h3 className="mb-4 font-serif text-2xl font-light text-white">
-                Reliability is non-negotiable
-              </h3>
-              <p className="leading-relaxed text-[#E5E5E5]">
+            <div className="border-l-2 border-[#262626] pl-6">
+              <p className="mb-2 text-xl leading-[1.5] text-[#FAFAF9]">
+                "Reliability is non-negotiable"
+              </p>
+              <p className="text-base leading-[1.7] text-[#737373]">
                 Our tools work on day one. No endless betas, no broken promises.
               </p>
             </div>
           </div>
         </section>
 
-        {/* APPROACH SECTION */}
-        <section className="mb-24 py-24">
-          <h2 className="mb-16 font-serif text-5xl font-light tracking-tight text-white sm:text-6xl">
+        {/* PROCESS - CLEAN NUMBERED LIST */}
+        <section className="mb-20 sm:mb-32">
+          <h2 className="mb-10 text-2xl font-light leading-tight tracking-tight text-[#FAFAF9]">
             How We Build
           </h2>
-          <div className="relative">
-            {/* Vertical gold line connector */}
-            <div className="absolute left-6 top-6 bottom-6 w-px bg-gradient-to-b from-[#C4A76A] via-[#C4A76A] to-[#C4A76A]/20" />
 
-            <div className="space-y-12">
-              {/* Step 1: Research */}
-              <div className="relative flex gap-8">
-                <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#C4A76A] bg-[#0A0A0A]">
-                  <span className="font-serif text-xl font-light text-[#C4A76A]">
-                    1
-                  </span>
-                </div>
-                <div className="flex-1 pb-4 pt-2">
-                  <h3 className="mb-3 font-serif text-3xl font-light text-white">
-                    Research
-                  </h3>
-                  <p className="text-lg leading-relaxed text-[#E5E5E5]">
-                    We study real-world workflows before writing code.
-                    Understanding precedes building.
-                  </p>
-                </div>
+          <div className="space-y-8">
+            <div className="flex gap-6">
+              <span className="shrink-0 text-base font-normal text-[#D97757]">
+                01
+              </span>
+              <div>
+                <h3 className="mb-2 text-lg font-normal leading-tight text-[#FAFAF9]">
+                  Research
+                </h3>
+                <p className="text-base leading-[1.7] text-[#737373]">
+                  We study real-world workflows before writing code.
+                  Understanding precedes building.
+                </p>
               </div>
+            </div>
 
-              {/* Step 2: Build */}
-              <div className="relative flex gap-8">
-                <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#C4A76A] bg-[#0A0A0A]">
-                  <span className="font-serif text-xl font-light text-[#C4A76A]">
-                    2
-                  </span>
-                </div>
-                <div className="flex-1 pb-4 pt-2">
-                  <h3 className="mb-3 font-serif text-3xl font-light text-white">
-                    Build
-                  </h3>
-                  <p className="text-lg leading-relaxed text-[#E5E5E5]">
-                    Purpose-built tools for specific problems. Not platforms,
-                    but focused solutions.
-                  </p>
-                </div>
+            <div className="flex gap-6">
+              <span className="shrink-0 text-base font-normal text-[#D97757]">
+                02
+              </span>
+              <div>
+                <h3 className="mb-2 text-lg font-normal leading-tight text-[#FAFAF9]">
+                  Build
+                </h3>
+                <p className="text-base leading-[1.7] text-[#737373]">
+                  Purpose-built tools for specific problems. Not platforms, but
+                  focused solutions.
+                </p>
               </div>
+            </div>
 
-              {/* Step 3: Iterate */}
-              <div className="relative flex gap-8">
-                <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#C4A76A] bg-[#0A0A0A]">
-                  <span className="font-serif text-xl font-light text-[#C4A76A]">
-                    3
-                  </span>
-                </div>
-                <div className="flex-1 pb-4 pt-2">
-                  <h3 className="mb-3 font-serif text-3xl font-light text-white">
-                    Iterate
-                  </h3>
-                  <p className="text-lg leading-relaxed text-[#E5E5E5]">
-                    Continuous refinement based on practitioner feedback.
-                  </p>
-                </div>
+            <div className="flex gap-6">
+              <span className="shrink-0 text-base font-normal text-[#D97757]">
+                03
+              </span>
+              <div>
+                <h3 className="mb-2 text-lg font-normal leading-tight text-[#FAFAF9]">
+                  Iterate
+                </h3>
+                <p className="text-base leading-[1.7] text-[#737373]">
+                  Continuous refinement based on practitioner feedback. Ship,
+                  learn, improve.
+                </p>
               </div>
+            </div>
 
-              {/* Step 4: Ship */}
-              <div className="relative flex gap-8">
-                <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#C4A76A] bg-[#0A0A0A]">
-                  <span className="font-serif text-xl font-light text-[#C4A76A]">
-                    4
-                  </span>
-                </div>
-                <div className="flex-1 pt-2">
-                  <h3 className="mb-3 font-serif text-3xl font-light text-white">
-                    Ship
-                  </h3>
-                  <p className="text-lg leading-relaxed text-[#E5E5E5]">
-                    Reliable software that works. No excuses.
-                  </p>
-                </div>
+            <div className="flex gap-6">
+              <span className="shrink-0 text-base font-normal text-[#D97757]">
+                04
+              </span>
+              <div>
+                <h3 className="mb-2 text-lg font-normal leading-tight text-[#FAFAF9]">
+                  Ship
+                </h3>
+                <p className="text-base leading-[1.7] text-[#737373]">
+                  Reliable software that works. No excuses, no broken promises.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* MULTI-PRODUCT SECTION */}
-        <section className="mb-24 py-24">
-          <h2 className="mb-16 font-serif text-5xl font-light tracking-tight text-white sm:text-6xl">
-            The House of Products
-          </h2>
-          <div className="mb-12 rounded-lg border border-[#1F1F1F] bg-[#1A1A1A] p-12">
-            <p className="mb-8 text-xl leading-relaxed text-[#E5E5E5] sm:text-2xl">
-              Firmis Labs operates as an engineering atelier—a studio that
-              crafts multiple independent products under a unified philosophy.
-              Each tool is purpose-built for a specific workflow, designed to
-              excel at one thing rather than attempting everything.
-            </p>
-            <div className="h-px bg-gradient-to-r from-transparent via-[#C4A76A] to-transparent" />
-          </div>
+        {/* CLOSING STATEMENT */}
+        <section className="py-8">
+          <p className="mb-8 text-lg leading-[1.7] text-[#A3A3A3]">
+            We build tools for people who value precision over popularity,
+            reliability over rapid releases, and clarity over complexity.
+          </p>
 
-          {/* Product Showcase */}
-          <div className="grid gap-6 sm:grid-cols-3">
-            <div className="group rounded-lg border border-[#1F1F1F] bg-[#1A1A1A] p-8 transition-all hover:border-[#C4A76A]/50">
-              <div className="mb-4 flex h-16 items-center">
-                <span className="font-serif text-3xl font-light text-white">
-                  SB
-                </span>
-              </div>
-              <h3 className="mb-2 font-serif text-xl font-light text-white">
-                SessionBank
-              </h3>
-              <p className="text-sm text-[#E5E5E5]/70">
-                Browser session management
-              </p>
-            </div>
-
-            <div className="group rounded-lg border border-[#1F1F1F] bg-[#1A1A1A] p-8 transition-all hover:border-[#C4A76A]/50">
-              <div className="mb-4 flex h-16 items-center">
-                <span className="font-serif text-3xl font-light text-white">
-                  LT
-                </span>
-              </div>
-              <h3 className="mb-2 font-serif text-xl font-light text-white">
-                LinkTransparency
-              </h3>
-              <p className="text-sm text-[#E5E5E5]/70">
-                URL tracking detection
-              </p>
-            </div>
-
-            <div className="group rounded-lg border border-[#1F1F1F] bg-[#1A1A1A] p-8 transition-all hover:border-[#C4A76A]/50">
-              <div className="mb-4 flex h-16 items-center">
-                <span className="font-serif text-3xl font-light text-white">
-                  TT
-                </span>
-              </div>
-              <h3 className="mb-2 font-serif text-xl font-light text-white">
-                Thumbnail Tester
-              </h3>
-              <p className="text-sm text-[#E5E5E5]/70">
-                YouTube preview testing
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* CLOSING CTA */}
-        <section className="py-12">
-          <div className="rounded-lg border-2 border-[#C4A76A]/30 bg-[#1A1A1A] p-12 text-center">
-            <p className="mb-6 font-serif text-3xl font-light text-white sm:text-4xl">
-              Precision tools for modern operators
-            </p>
-            <Link
-              href="/products"
-              className="inline-flex items-center justify-center rounded-lg bg-[#C4A76A] px-8 py-4 font-medium text-[#0A0A0A] transition-all hover:bg-[#D4B77A]"
+          <Link
+            href="/products"
+            className="inline-flex items-center text-base text-[#D97757] transition-colors hover:text-[#E89873]"
+          >
+            View our products
+            <svg
+              className="ml-2 h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              Explore Products
-            </Link>
-          </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </Link>
         </section>
       </div>
     </div>

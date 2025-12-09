@@ -37,31 +37,23 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-0 left-0 right-0 z-50 h-[4.25rem] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           scrolled
-            ? 'bg-[#0A0A0A]/80 backdrop-blur-xl border-b border-[#2A2A2A]'
+            ? 'bg-[#0C0C0C]/90 backdrop-blur-md border-b border-[#262626]'
             : 'bg-transparent'
         }`}
       >
         <nav
-          className={`mx-auto max-w-[1200px] flex items-center justify-between px-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            scrolled ? 'h-14' : 'h-20'
-          }`}
+          className="h-full mx-auto max-w-[1400px] flex items-center justify-between px-6 lg:px-8"
           aria-label="Main navigation"
         >
-          {/* Logo with signature gold vertical line */}
+          {/* Logo */}
           <Link
             href="/"
-            className="group flex items-center gap-3 relative z-10"
-            aria-label="Firmis Labs home"
+            className="relative z-10 text-base font-medium tracking-tight text-[#FAFAF9] transition-colors duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-[#A3A3A3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#FAFAF9] focus-visible:outline-offset-4 focus-visible:rounded-sm"
+            aria-label="firmis labs home"
           >
-            <div
-              className="w-[2px] h-6 bg-[#C4A76A] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:h-8"
-              aria-hidden="true"
-            />
-            <span className="text-lg font-normal tracking-wide text-[#FAFAFA] transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-[#C4A76A] font-serif">
-              firmis labs
-            </span>
+            firmis labs
           </Link>
 
           {/* Desktop Navigation */}
@@ -70,11 +62,11 @@ export default function Header() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="group relative text-sm font-medium text-[#888888] transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-[#C4A76A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C4A76A] focus-visible:outline-offset-4 focus-visible:rounded-sm"
+                  className="group relative inline-block text-sm font-normal text-[#A3A3A3] transition-colors duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-[#FAFAF9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#FAFAF9] focus-visible:outline-offset-4 focus-visible:rounded-sm"
                 >
                   {item.name}
                   <span
-                    className="absolute bottom-0 left-0 h-[1px] w-0 bg-[#C4A76A] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full"
+                    className="absolute -bottom-1 left-0 h-[1px] w-0 bg-[#FAFAF9] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full"
                     aria-hidden="true"
                   />
                 </Link>
@@ -85,7 +77,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden relative w-10 h-10 flex items-center justify-center text-[#888888] hover:text-[#C4A76A] transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] z-10"
+            className="md:hidden relative z-10 w-10 h-10 flex items-center justify-center text-[#A3A3A3] hover:text-[#FAFAF9] transition-colors duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#FAFAF9] focus-visible:outline-offset-4 focus-visible:rounded-sm"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -113,7 +105,7 @@ export default function Header() {
 
       {/* Mobile Menu - Full-screen overlay */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           mobileMenuOpen
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none'
@@ -122,23 +114,22 @@ export default function Header() {
       >
         {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-[#0A0A0A]/95 backdrop-blur-2xl"
+          className="absolute inset-0 bg-[#0C0C0C]/95 backdrop-blur-xl"
           onClick={() => setMobileMenuOpen(false)}
           aria-hidden="true"
         />
 
         {/* Menu content */}
-        <div className="relative h-full flex items-center justify-center">
+        <div className="relative h-full flex items-center justify-center pt-[4.25rem]">
           <nav
-            className="w-full max-w-md px-6"
+            className="w-full max-w-md px-8"
             aria-label="Mobile navigation"
           >
-            {/* Architectural grid layout */}
-            <ul className="space-y-2" role="list">
+            <ul className="space-y-1" role="list">
               {navigation.map((item, index) => (
                 <li
                   key={item.name}
-                  className="overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  className="transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
                   style={{
                     transform: mobileMenuOpen
                       ? 'translateY(0)'
@@ -151,37 +142,14 @@ export default function Header() {
                 >
                   <Link
                     href={item.href}
-                    className="group flex items-center gap-4 py-4 border-b border-[#2A2A2A] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C4A76A] focus-visible:outline-offset-4 focus-visible:rounded"
+                    className="group block py-5 text-2xl font-normal text-[#A3A3A3] transition-colors duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-[#FAFAF9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#FAFAF9] focus-visible:outline-offset-4 focus-visible:rounded"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span
-                      className="w-[2px] h-0 bg-[#C4A76A] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:h-6"
-                      aria-hidden="true"
-                    />
-                    <span className="text-2xl font-normal text-[#888888] transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-[#C4A76A] font-serif">
-                      {item.name}
-                    </span>
-                    <span
-                      className="ml-auto text-sm text-[#2A2A2A] transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-[#C4A76A]"
-                      aria-hidden="true"
-                    >
-                      0{index + 1}
-                    </span>
+                    {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
-
-            {/* Decorative gold line */}
-            <div
-              className="mt-12 h-[1px] bg-gradient-to-r from-transparent via-[#C4A76A] to-transparent transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)]"
-              style={{
-                opacity: mobileMenuOpen ? 1 : 0,
-                transform: mobileMenuOpen ? 'scaleX(1)' : 'scaleX(0)',
-                transitionDelay: mobileMenuOpen ? '400ms' : '0ms',
-              }}
-              aria-hidden="true"
-            />
           </nav>
         </div>
       </div>

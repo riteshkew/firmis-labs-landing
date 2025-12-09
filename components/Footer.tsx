@@ -70,46 +70,46 @@ const social = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#0F0F0F]" role="contentinfo">
-      {/* Top Gold Gradient Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-[#C4A76A] to-transparent" />
+    <footer className="bg-[#0C0C0C]" role="contentinfo">
+      {/* Subtle top border */}
+      <div
+        className="h-px w-full"
+        style={{ backgroundColor: '#262626' }}
+      />
 
-      <div className="mx-auto max-w-[1200px] px-6 py-20 lg:px-8">
-        {/* Main Grid */}
-        <div className="grid gap-16 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-20">
-          {/* Brand Section with Gold Accent */}
-          <div className="relative">
-            {/* Gold Accent Line */}
-            <div className="absolute -left-6 top-0 h-full w-px bg-gradient-to-b from-[#C4A76A] to-transparent opacity-50 lg:-left-8" />
-
-            <div className="space-y-4">
-              <Link
-                href="/"
-                className="inline-block font-cormorant text-3xl font-medium tracking-[-0.02em] text-[#FAFAFA] transition-colors duration-300 hover:text-[#C4A76A]"
-                aria-label="Firmis Labs home"
-              >
-                firmis labs
-              </Link>
-              <p className="max-w-xs text-sm leading-relaxed tracking-wide text-[#888888]">
-                Precision engineering for modern software
-              </p>
-            </div>
+      <div className="mx-auto max-w-[1200px] px-6 py-16 lg:py-20 lg:px-8">
+        {/* Main content grid */}
+        <div className="grid gap-12 lg:grid-cols-[2fr_1fr_1fr_1fr] lg:gap-16">
+          {/* Logo and tagline */}
+          <div className="space-y-4">
+            <Link
+              href="/"
+              className="inline-block font-medium text-[#FAFAF9] transition-colors duration-200 hover:text-[#737373]"
+              style={{ fontSize: '20px', letterSpacing: '-0.01em' }}
+            >
+              Firmis Labs
+            </Link>
+            <p className="max-w-xs text-sm leading-relaxed text-[#737373]">
+              Precision engineering for modern software systems
+            </p>
           </div>
 
-          {/* Products Navigation */}
-          <nav aria-labelledby="footer-products-heading">
+          {/* Products column */}
+          <nav aria-labelledby="footer-products">
             <h3
-              id="footer-products-heading"
-              className="text-xs font-semibold uppercase tracking-[0.1em] text-[#FAFAFA]"
+              id="footer-products"
+              className="text-xs font-normal uppercase text-[#737373]"
+              style={{ letterSpacing: '0.15em' }}
             >
               Products
             </h3>
-            <ul className="mt-6 space-y-4" role="list">
+            <ul className="mt-6 space-y-3" role="list">
               {navigation.products.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="inline-block text-sm text-[#888888] transition-all duration-300 hover:translate-x-1 hover:text-[#C4A76A]"
+                    className="text-sm font-normal text-[#737373] transition-colors duration-200 hover:text-[#FAFAF9]"
+                    style={{ textUnderlineOffset: '4px' }}
                   >
                     {item.name}
                   </Link>
@@ -118,20 +118,22 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Company Navigation */}
-          <nav aria-labelledby="footer-company-heading">
+          {/* Company column */}
+          <nav aria-labelledby="footer-company">
             <h3
-              id="footer-company-heading"
-              className="text-xs font-semibold uppercase tracking-[0.1em] text-[#FAFAFA]"
+              id="footer-company"
+              className="text-xs font-normal uppercase text-[#737373]"
+              style={{ letterSpacing: '0.15em' }}
             >
               Company
             </h3>
-            <ul className="mt-6 space-y-4" role="list">
+            <ul className="mt-6 space-y-3" role="list">
               {navigation.company.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="inline-block text-sm text-[#888888] transition-all duration-300 hover:translate-x-1 hover:text-[#C4A76A]"
+                    className="text-sm font-normal text-[#737373] transition-colors duration-200 hover:text-[#FAFAF9]"
+                    style={{ textUnderlineOffset: '4px' }}
                   >
                     {item.name}
                   </Link>
@@ -140,20 +142,22 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Legal Navigation */}
-          <nav aria-labelledby="footer-legal-heading">
+          {/* Legal column */}
+          <nav aria-labelledby="footer-legal">
             <h3
-              id="footer-legal-heading"
-              className="text-xs font-semibold uppercase tracking-[0.1em] text-[#FAFAFA]"
+              id="footer-legal"
+              className="text-xs font-normal uppercase text-[#737373]"
+              style={{ letterSpacing: '0.15em' }}
             >
               Legal
             </h3>
-            <ul className="mt-6 space-y-4" role="list">
+            <ul className="mt-6 space-y-3" role="list">
               {navigation.legal.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="inline-block text-sm text-[#888888] transition-all duration-300 hover:translate-x-1 hover:text-[#C4A76A]"
+                    className="text-sm font-normal text-[#737373] transition-colors duration-200 hover:text-[#FAFAF9]"
+                    style={{ textUnderlineOffset: '4px' }}
                   >
                     {item.name}
                   </Link>
@@ -163,22 +167,26 @@ export default function Footer() {
           </nav>
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-20 flex flex-col-reverse items-center justify-between gap-8 border-t border-[#1A1A1A] pt-8 sm:flex-row">
+        {/* Bottom section with border */}
+        <div
+          className="mt-16 flex flex-col-reverse items-center justify-between gap-8 border-t pt-8 sm:flex-row"
+          style={{ borderColor: '#262626' }}
+        >
           {/* Copyright */}
-          <p className="text-sm text-[#888888]">
+          <p className="text-sm font-normal text-[#737373]">
             &copy; {new Date().getFullYear()} Firmis Labs. All rights reserved.
           </p>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-6" role="list">
+          {/* Social links */}
+          <div className="flex items-center gap-6">
             {social.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#888888] transition-all duration-300 hover:scale-110 hover:text-[#C4A76A]"
+                className="text-[#737373] transition-opacity duration-200 hover:opacity-100"
+                style={{ opacity: 0.6 }}
                 aria-label={`Follow us on ${item.name}`}
               >
                 {item.icon}

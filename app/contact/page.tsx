@@ -1,20 +1,17 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
-import { Mail, Clock, Briefcase } from 'lucide-react'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: '',
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -22,224 +19,149 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsSubmitting(true)
 
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    await new Promise(resolve => setTimeout(resolve, 1000))
 
-    setIsSubmitting(false)
-    setSubmitStatus('success')
+    setIsSubmitted(true)
+    setFormData({ name: '', email: '', message: '' })
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    })
-
-    // Clear success message after 5 seconds
-    setTimeout(() => setSubmitStatus('idle'), 5000)
+    // Reset success message after 5 seconds
+    setTimeout(() => setIsSubmitted(false), 5000)
   }
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
-      <main className="max-w-7xl mx-auto px-6 py-24 lg:py-32">
+    <div className="min-h-screen bg-[#0C0C0C] px-6 py-16 lg:py-24">
+      <div className="max-w-4xl mx-auto">
         {/* Page Header */}
-        <div className="mb-16 lg:mb-20">
-          <h1
-            className="text-6xl lg:text-7xl text-[#FAFAFA] mb-6 tracking-tight font-light"
-            style={{ fontFamily: 'Cormorant Garamond, serif' }}
-          >
-            Get in Touch
+        <div className="mb-16">
+          <h1 className="text-4xl lg:text-5xl text-[#FAFAF9] mb-4 font-light tracking-tight">
+            Get in touch
           </h1>
-          <p className="text-xl text-[#AAAAAA] mb-8 font-light">
+          <p className="text-lg text-[#A3A3A3]">
             We'd love to hear from you
           </p>
-          {/* Gold gradient divider */}
-          <div className="h-px w-32 bg-gradient-to-r from-[#C4A76A] to-transparent"></div>
         </div>
 
-        {/* Two-Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* LEFT COLUMN - Contact Form */}
-          <div className="relative">
-            <div className="bg-[#1A1A1A] border border-[#1F1F1F] rounded-lg p-8 lg:p-10 relative overflow-hidden">
-              {/* Gold accent line */}
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#C4A76A] via-[#D4B77A] to-transparent"></div>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Field */}
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm text-[#AAAAAA] mb-2 font-medium"
-                  >
-                    Name <span className="text-[#C4A76A]">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your full name"
-                    className="w-full px-4 py-3.5 bg-[#0F0F0F] border border-[#1F1F1F] rounded-md
-                             text-[#FAFAFA] placeholder-[#888888]
-                             focus:outline-none focus:border-[#C4A76A] focus:ring-1 focus:ring-[#C4A76A]
-                             transition-all duration-300"
-                  />
-                </div>
-
-                {/* Email Field */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm text-[#AAAAAA] mb-2 font-medium"
-                  >
-                    Email <span className="text-[#C4A76A]">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="you@company.com"
-                    className="w-full px-4 py-3.5 bg-[#0F0F0F] border border-[#1F1F1F] rounded-md
-                             text-[#FAFAFA] placeholder-[#888888]
-                             focus:outline-none focus:border-[#C4A76A] focus:ring-1 focus:ring-[#C4A76A]
-                             transition-all duration-300"
-                  />
-                </div>
-
-                {/* Subject Field */}
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm text-[#AAAAAA] mb-2 font-medium"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="What would you like to discuss?"
-                    className="w-full px-4 py-3.5 bg-[#0F0F0F] border border-[#1F1F1F] rounded-md
-                             text-[#FAFAFA] placeholder-[#888888]
-                             focus:outline-none focus:border-[#C4A76A] focus:ring-1 focus:ring-[#C4A76A]
-                             transition-all duration-300"
-                  />
-                </div>
-
-                {/* Message Field */}
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm text-[#AAAAAA] mb-2 font-medium"
-                  >
-                    Message <span className="text-[#C4A76A]">*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your project, timeline, and goals..."
-                    className="w-full px-4 py-3.5 bg-[#0F0F0F] border border-[#1F1F1F] rounded-md
-                             text-[#FAFAFA] placeholder-[#888888]
-                             focus:outline-none focus:border-[#C4A76A] focus:ring-1 focus:ring-[#C4A76A]
-                             transition-all duration-300 resize-none"
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-6 py-4 bg-[#C4A76A] text-[#0A0A0A] font-semibold rounded-md
-                           hover:bg-[#D4B77A] focus:outline-none focus:ring-2 focus:ring-[#C4A76A]
-                           focus:ring-offset-2 focus:ring-offset-[#0A0A0A]
-                           transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed
-                           transform hover:translate-y-[-2px] active:translate-y-0"
+        {/* Two Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          {/* Left Column - Contact Form */}
+          <div className="lg:col-span-2">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name Field */}
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm text-[#A3A3A3] mb-2"
                 >
-                  {isSubmitting ? 'Sending Message...' : 'Send Message'}
-                </button>
-
-                {/* Success Message */}
-                {submitStatus === 'success' && (
-                  <div className="p-4 bg-[#0F0F0F] border border-[#C4A76A] rounded-md animate-in fade-in slide-in-from-top-2 duration-300">
-                    <p className="text-sm text-[#C4A76A] font-medium">
-                      Thank you. We'll be in touch soon.
-                    </p>
-                  </div>
-                )}
-              </form>
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN - Contact Info */}
-          <div className="space-y-6">
-            {/* Email Card */}
-            <div className="bg-[#1A1A1A] border border-[#1F1F1F] rounded-lg p-8 hover:border-[#C4A76A] transition-all duration-300 group">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#0F0F0F] rounded-lg border border-[#1F1F1F] group-hover:border-[#C4A76A] transition-all duration-300">
-                  <Mail className="w-6 h-6 text-[#C4A76A]" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-[#FAFAFA] mb-2">Email</h3>
-                  <a
-                    href="mailto:hello@firmislabs.com"
-                    className="text-[#AAAAAA] hover:text-[#C4A76A] transition-colors duration-300 text-sm"
-                  >
-                    hello@firmislabs.com
-                  </a>
-                </div>
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your name"
+                  className="w-full px-4 py-3 bg-[#141414] border border-[#262626] rounded-lg
+                           text-[#FAFAF9] placeholder-[#525252]
+                           focus:outline-none focus:border-[#D97757] focus:ring-1 focus:ring-[#D97757]/20
+                           transition-all duration-200"
+                />
               </div>
-            </div>
 
-            {/* Response Time Card */}
-            <div className="bg-[#1A1A1A] border border-[#1F1F1F] rounded-lg p-8 hover:border-[#C4A76A] transition-all duration-300 group">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#0F0F0F] rounded-lg border border-[#1F1F1F] group-hover:border-[#C4A76A] transition-all duration-300">
-                  <Clock className="w-6 h-6 text-[#C4A76A]" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-[#FAFAFA] mb-2">Response Time</h3>
-                  <p className="text-[#AAAAAA] text-sm leading-relaxed">
-                    We typically respond within 24 hours
+              {/* Email Field */}
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm text-[#A3A3A3] mb-2"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="you@example.com"
+                  className="w-full px-4 py-3 bg-[#141414] border border-[#262626] rounded-lg
+                           text-[#FAFAF9] placeholder-[#525252]
+                           focus:outline-none focus:border-[#D97757] focus:ring-1 focus:ring-[#D97757]/20
+                           transition-all duration-200"
+                />
+              </div>
+
+              {/* Message Field */}
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm text-[#A3A3A3] mb-2"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us what you're working on..."
+                  className="w-full px-4 py-3 bg-[#141414] border border-[#262626] rounded-lg
+                           text-[#FAFAF9] placeholder-[#525252]
+                           focus:outline-none focus:border-[#D97757] focus:ring-1 focus:ring-[#D97757]/20
+                           transition-all duration-200 resize-none"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full py-3 bg-[#D97757] text-white font-medium rounded-lg
+                         hover:bg-[#E08B6D]
+                         focus:outline-none focus:ring-2 focus:ring-[#D97757] focus:ring-offset-2 focus:ring-offset-[#0C0C0C]
+                         transition-all duration-200"
+              >
+                Send message
+              </button>
+
+              {/* Success Message */}
+              {isSubmitted && (
+                <div className="p-4 bg-[#141414] border border-[#D97757]/30 rounded-lg">
+                  <p className="text-sm text-[#FAFAF9]">
+                    Thank you for reaching out. We'll get back to you soon.
                   </p>
                 </div>
-              </div>
+              )}
+            </form>
+          </div>
+
+          {/* Right Column - Contact Info */}
+          <div className="space-y-8">
+            {/* Email */}
+            <div>
+              <h3 className="text-sm text-[#A3A3A3] mb-2">Email</h3>
+              <a
+                href="mailto:hello@firmislabs.com"
+                className="text-[#FAFAF9] hover:text-[#D97757] transition-colors duration-200"
+              >
+                hello@firmislabs.com
+              </a>
             </div>
 
-            {/* Partnerships Card */}
-            <div className="bg-[#1A1A1A] border border-[#1F1F1F] rounded-lg p-8 hover:border-[#C4A76A] transition-all duration-300 group">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#0F0F0F] rounded-lg border border-[#1F1F1F] group-hover:border-[#C4A76A] transition-all duration-300">
-                  <Briefcase className="w-6 h-6 text-[#C4A76A]" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-[#FAFAFA] mb-2">For Partnerships</h3>
-                  <a
-                    href="mailto:partnerships@firmislabs.com"
-                    className="text-[#AAAAAA] hover:text-[#C4A76A] transition-colors duration-300 text-sm"
-                  >
-                    partnerships@firmislabs.com
-                  </a>
-                </div>
-              </div>
+            {/* Response Time */}
+            <div>
+              <h3 className="text-sm text-[#A3A3A3] mb-2">Response time</h3>
+              <p className="text-[#737373] text-sm leading-relaxed">
+                We typically respond within 24 hours
+              </p>
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   )
 }
