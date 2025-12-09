@@ -1,4 +1,9 @@
 import type { Metadata } from 'next'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import { ChevronRight, Check } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Products | Firmis Labs',
@@ -17,7 +22,7 @@ interface Product {
   ctaText: string
   ctaHref: string
   statusBadge: string
-  statusVariant: 'available' | 'extension' | 'coming-soon'
+  badgeVariant: 'default' | 'secondary'
 }
 
 const products: Product[] = [
@@ -36,7 +41,7 @@ const products: Product[] = [
     ctaText: 'Learn more',
     ctaHref: '#',
     statusBadge: 'Available',
-    statusVariant: 'available',
+    badgeVariant: 'default',
   },
   {
     name: 'LinkTransparency',
@@ -53,7 +58,7 @@ const products: Product[] = [
     ctaText: 'Add to Chrome',
     ctaHref: '#',
     statusBadge: 'Chrome Extension',
-    statusVariant: 'extension',
+    badgeVariant: 'default',
   },
   {
     name: 'Thumbnail Tester',
@@ -70,116 +75,64 @@ const products: Product[] = [
     ctaText: 'Join waitlist',
     ctaHref: '#',
     statusBadge: 'Coming Soon',
-    statusVariant: 'coming-soon',
+    badgeVariant: 'secondary',
   },
 ]
 
-function StatusBadge({
-  variant,
-  children,
-}: {
-  variant: 'available' | 'extension' | 'coming-soon'
-  children: React.ReactNode
-}) {
-  const variantClasses = {
-    available: 'bg-[#D97757]/10 text-[#D97757]',
-    extension: 'bg-[#262626] text-[#A3A3A3]',
-    'coming-soon': 'bg-[#262626] text-[#737373]',
-  }
-
-  return (
-    <span
-      className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${variantClasses[variant]}`}
-    >
-      {children}
-    </span>
-  )
-}
-
 function ProductCard({ product }: { product: Product }) {
-  const isComingSoon = product.statusVariant === 'coming-soon'
+  const isComingSoon = product.statusBadge === 'Coming Soon'
 
   return (
-    <article className="group bg-[#141414] border border-[#262626] rounded-xl p-10 transition-all duration-200 hover:border-[#333333] hover:shadow-lg hover:shadow-black/20">
-      <div className="flex items-start justify-between gap-6 mb-6">
-        <h2 className="text-3xl font-normal text-[#FAFAF9] tracking-tight leading-tight">
-          {product.name}
-        </h2>
-        <StatusBadge variant={product.statusVariant}>
-          {product.statusBadge}
-        </StatusBadge>
-      </div>
+    <Card className="group bg-card border-border hover:border-[#333333] transition-all duration-200">
+      <CardHeader className="space-y-4">
+        <div className="flex items-start justify-between gap-4">
+          <CardTitle className="text-3xl font-normal text-[#FAFAF9] tracking-tight">
+            {product.name}
+          </CardTitle>
+          <Badge variant={product.badgeVariant} className="shrink-0">
+            {product.statusBadge}
+          </Badge>
+        </div>
+        <CardDescription className="text-xl text-[#FAFAF9] font-light leading-relaxed">
+          {product.tagline}
+        </CardDescription>
+      </CardHeader>
 
-      <p className="text-xl text-[#FAFAF9] mb-6 leading-relaxed font-light">
-        {product.tagline}
-      </p>
+      <CardContent className="space-y-6">
+        <p className="text-base text-[#A3A3A3] leading-relaxed">
+          {product.description}
+        </p>
 
-      <p className="text-base text-[#A3A3A3] mb-8 leading-relaxed">
-        {product.description}
-      </p>
+        <Separator className="bg-border/50" />
 
-      <ul className="space-y-3 mb-10">
-        {product.features.map((feature, index) => (
-          <li key={index} className="flex items-start gap-3">
-            <span
-              className="flex-shrink-0 mt-1.5 w-1 h-1 rounded-full bg-[#D97757]"
-              aria-hidden="true"
-            />
-            <span className="text-sm text-[#A3A3A3] leading-relaxed">
-              {feature.text}
-            </span>
-          </li>
-        ))}
-      </ul>
+        <ul className="space-y-3">
+          {product.features.map((feature, index) => (
+            <li key={index} className="flex items-start gap-3">
+              <Check className="w-4 h-4 text-[#D97757] shrink-0 mt-0.5" />
+              <span className="text-sm text-[#A3A3A3] leading-relaxed">
+                {feature.text}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </CardContent>
 
-      {isComingSoon ? (
-        <button
-          disabled
-          className="inline-flex items-center gap-2 px-5 py-2.5 border border-[#262626] text-[#737373] text-sm font-medium rounded-lg cursor-not-allowed"
-        >
-          {product.ctaText}
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              d="M6 3L11 8L6 13"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-      ) : (
-        <a
-          href={product.ctaHref}
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FAFAF9] text-[#0C0C0C] text-sm font-medium rounded-lg transition-all duration-150 hover:bg-white hover:shadow-md"
-        >
-          {product.ctaText}
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              d="M6 3L11 8L6 13"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </a>
-      )}
-    </article>
+      <CardFooter>
+        {isComingSoon ? (
+          <Button disabled variant="outline" className="w-full sm:w-auto">
+            {product.ctaText}
+            <ChevronRight className="w-4 h-4" />
+          </Button>
+        ) : (
+          <Button asChild variant="default" className="w-full sm:w-auto">
+            <a href={product.ctaHref}>
+              {product.ctaText}
+              <ChevronRight className="w-4 h-4" />
+            </a>
+          </Button>
+        )}
+      </CardFooter>
+    </Card>
   )
 }
 
@@ -189,7 +142,7 @@ export default function ProductsPage() {
       <div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
         <header className="mb-20">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-[#FAFAF9] mb-6 tracking-tight leading-tight">
-            Products
+            Our Products
           </h1>
           <p className="text-lg md:text-xl text-[#A3A3A3] leading-relaxed max-w-2xl">
             Tools built for underserved professional markets. Technical

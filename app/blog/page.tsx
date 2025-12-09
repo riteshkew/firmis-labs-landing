@@ -1,4 +1,13 @@
 import Link from "next/link"
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Separator } from "@/components/ui/separator"
 
 interface BlogPost {
   id: string
@@ -41,8 +50,7 @@ const blogPosts: BlogPost[] = [
 
 export const metadata = {
   title: "Journal - Firmis Labs",
-  description:
-    "Thoughts on engineering craft and product development",
+  description: "Thoughts on engineering craft and product development",
 }
 
 export default function BlogPage() {
@@ -59,67 +67,64 @@ export default function BlogPage() {
           </p>
         </header>
 
+        <Separator className="mb-12 bg-[#262626]" />
+
         {/* Blog Posts Grid */}
         {blogPosts.length > 0 ? (
           <div className="grid gap-8 sm:grid-cols-2 lg:gap-12">
             {blogPosts.map((post) => (
-              <article
+              <Link
                 key={post.id}
-                className="group border-b border-[#262626] pb-8 transition-colors duration-300 hover:border-[#404040]"
+                href={`/blog/${post.slug}`}
+                className="group block"
               >
-                <Link href={`/blog/${post.slug}`} className="block">
-                  {/* Category Tag */}
-                  <div className="mb-4">
-                    <span className="text-xs font-medium uppercase tracking-wider text-[#D97757]">
-                      {post.category}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h2 className="mb-4 text-2xl font-normal leading-snug text-[#FAFAF9] transition-all duration-300 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4 sm:text-3xl">
-                    {post.title}
-                  </h2>
-
-                  {/* Date */}
-                  <time
-                    dateTime={post.date}
-                    className="mb-4 block text-sm text-[#737373]"
-                  >
-                    {post.date}
-                  </time>
-
-                  {/* Excerpt */}
-                  <p className="mb-6 line-clamp-3 leading-relaxed text-[#A3A3A3]">
-                    {post.excerpt}
-                  </p>
-
-                  {/* Read Link */}
-                  <div className="inline-flex items-center gap-2 text-sm text-[#A3A3A3] transition-colors duration-300 group-hover:text-[#FAFAF9]">
-                    <span>Read</span>
-                    <svg
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
+                <Card className="border-[#262626] bg-transparent transition-all duration-300 hover:border-[#404040] hover:bg-[#0C0C0C]/50">
+                  <CardHeader>
+                    <Badge
+                      variant="outline"
+                      className="mb-3 w-fit border-[#D97757] bg-transparent text-xs font-medium uppercase tracking-wider text-[#D97757]"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </div>
-                </Link>
-              </article>
+                      {post.category}
+                    </Badge>
+                    <CardTitle className="text-2xl font-normal leading-snug text-[#FAFAF9] transition-all duration-300 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4 sm:text-3xl">
+                      {post.title}
+                    </CardTitle>
+                    <time
+                      dateTime={post.date}
+                      className="block text-sm text-[#737373]"
+                    >
+                      {post.date}
+                    </time>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="mb-6 line-clamp-3 leading-relaxed text-[#A3A3A3]">
+                      {post.excerpt}
+                    </CardDescription>
+                    <div className="inline-flex items-center gap-2 text-sm text-[#A3A3A3] transition-colors duration-300 group-hover:text-[#FAFAF9]">
+                      <span>Read</span>
+                      <svg
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         ) : (
           /* Empty State */
           <div className="py-16 text-center">
-            <p className="text-lg text-[#A3A3A3]">
-              More articles coming soon
-            </p>
+            <p className="text-lg text-[#A3A3A3]">More articles coming soon</p>
           </div>
         )}
       </main>

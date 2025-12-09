@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Card, CardContent } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 
 export const metadata: Metadata = {
   title: 'About - Firmis Labs',
@@ -9,177 +11,172 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#0C0C0C]">
+    <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-3xl px-6 py-16 sm:px-8 sm:py-24">
-        {/* HERO */}
-        <section className="mb-20 pt-8 sm:mb-32 sm:pt-16">
+        {/* HEADER */}
+        <section className="mb-16 pt-8 sm:mb-24 sm:pt-16">
           <h1
-            className="mb-6 font-light tracking-tight text-[#FAFAF9]"
+            className="mb-4 font-light tracking-tight text-foreground"
             style={{
               fontSize: 'clamp(2rem, 1.5rem + 3vw, 3.5rem)',
               lineHeight: '1.1',
             }}
           >
-            Engineering Atelier
+            About Firmis Labs
           </h1>
+          <Separator className="mt-8" />
         </section>
 
-        {/* PHILOSOPHY - PROSE LAYOUT */}
-        <section className="mb-20 sm:mb-32">
-          <div className="prose-invert max-w-none">
-            <p className="mb-6 text-lg leading-[1.7] text-[#A3A3A3]">
-              Firmis Labs operates as a multi-product studio. We build focused
-              tools for practitioners who need software that{' '}
-              <span className="text-[#FAFAF9]">works</span>, not software that
-              markets well.
+        {/* OPENING SECTION - PHILOSOPHY */}
+        <section className="mb-16 sm:mb-24">
+          <div className="space-y-6">
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              We believe in building focused, single-purpose tools that do one thing exceptionally well.
+              No feature bloat. No unnecessary complexity. Just software that serves a clear purpose and serves it reliably.
             </p>
 
-            <p className="mb-6 text-lg leading-[1.7] text-[#A3A3A3]">
-              Each product we ship is purpose-built for a specific problem.{' '}
-              <span className="text-[#FAFAF9]">
-                Precision over feature bloat.
-              </span>{' '}
-              We don't build platforms or all-in-one solutions. We build tools
-              that do one thing exceptionally well.
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              Every product we build is purpose-crafted for practitioners—the people who live in their
+              tools every day. We don't design for personas or market segments. We design for real workflows,
+              real problems, and real people who demand{' '}
+              <span className="font-medium text-foreground">software that simply works</span>.
             </p>
 
-            <p className="mb-6 text-lg leading-[1.7] text-[#A3A3A3]">
-              Our software is built for practitioners, not personas. The people
-              who use our tools every day—designers, developers,
-              operators—demand reliability. So we make{' '}
-              <span className="text-[#FAFAF9]">reliability non-negotiable.</span>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              In a world of platforms promising to do everything, we choose deliberate constraint.
+              We're not building the next all-in-one solution. We're building tools that disappear
+              into your workflow because they do exactly what they're meant to do.
             </p>
           </div>
         </section>
 
-        {/* BELIEFS - MINIMAL STYLED QUOTES */}
-        <section className="mb-20 sm:mb-32">
-          <div className="space-y-10">
-            <div className="border-l-2 border-[#262626] pl-6">
-              <p className="mb-2 text-xl leading-[1.5] text-[#FAFAF9]">
-                "Software should be invisible"
-              </p>
-              <p className="text-base leading-[1.7] text-[#737373]">
-                The best tools disappear into your workflow. They don't demand
-                attention.
-              </p>
-            </div>
+        <Separator className="my-16 sm:my-24" />
 
-            <div className="border-l-2 border-[#262626] pl-6">
-              <p className="mb-2 text-xl leading-[1.5] text-[#FAFAF9]">
-                "Complexity is a design failure"
-              </p>
-              <p className="text-base leading-[1.7] text-[#737373]">
-                Every feature must earn its place. We build with intention, not
-                accumulation.
-              </p>
-            </div>
-
-            <div className="border-l-2 border-[#262626] pl-6">
-              <p className="mb-2 text-xl leading-[1.5] text-[#FAFAF9]">
-                "Reliability is non-negotiable"
-              </p>
-              <p className="text-base leading-[1.7] text-[#737373]">
-                Our tools work on day one. No endless betas, no broken promises.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* PROCESS - CLEAN NUMBERED LIST */}
-        <section className="mb-20 sm:mb-32">
-          <h2 className="mb-10 text-2xl font-light leading-tight tracking-tight text-[#FAFAF9]">
-            How We Build
+        {/* WHAT WE BELIEVE */}
+        <section className="mb-16 sm:mb-24">
+          <h2 className="mb-10 text-2xl font-light tracking-tight text-foreground">
+            What We Believe
           </h2>
 
-          <div className="space-y-8">
-            <div className="flex gap-6">
-              <span className="shrink-0 text-base font-normal text-[#D97757]">
-                01
-              </span>
-              <div>
-                <h3 className="mb-2 text-lg font-normal leading-tight text-[#FAFAF9]">
-                  Research
+          <div className="grid gap-6">
+            <Card className="border-border/40 bg-card/30">
+              <CardContent className="pt-6">
+                <h3 className="mb-3 text-lg font-medium text-foreground">
+                  Single-purpose tools
                 </h3>
-                <p className="text-base leading-[1.7] text-[#737373]">
-                  We study real-world workflows before writing code.
-                  Understanding precedes building.
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  Software should do one thing exceptionally well. Feature creep is a design failure.
+                  Every capability must earn its place. We build with intention, not accumulation.
                 </p>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
 
-            <div className="flex gap-6">
-              <span className="shrink-0 text-base font-normal text-[#D97757]">
-                02
-              </span>
-              <div>
-                <h3 className="mb-2 text-lg font-normal leading-tight text-[#FAFAF9]">
-                  Build
+            <Card className="border-border/40 bg-card/30">
+              <CardContent className="pt-6">
+                <h3 className="mb-3 text-lg font-medium text-foreground">
+                  Practitioner-first
                 </h3>
-                <p className="text-base leading-[1.7] text-[#737373]">
-                  Purpose-built tools for specific problems. Not platforms, but
-                  focused solutions.
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  Built for people who do the work, not people who buy the software.
+                  We design for daily use by skilled practitioners who need tools that integrate
+                  seamlessly into demanding workflows.
                 </p>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
 
-            <div className="flex gap-6">
-              <span className="shrink-0 text-base font-normal text-[#D97757]">
-                03
-              </span>
-              <div>
-                <h3 className="mb-2 text-lg font-normal leading-tight text-[#FAFAF9]">
-                  Iterate
+            <Card className="border-border/40 bg-card/30">
+              <CardContent className="pt-6">
+                <h3 className="mb-3 text-lg font-medium text-foreground">
+                  Sustainable software
                 </h3>
-                <p className="text-base leading-[1.7] text-[#737373]">
-                  Continuous refinement based on practitioner feedback. Ship,
-                  learn, improve.
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  Fair pricing. No surveillance capitalism. No dark patterns.
+                  We build businesses that respect users and create value without exploitation.
+                  Sustainable for us, sustainable for you.
                 </p>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
 
-            <div className="flex gap-6">
-              <span className="shrink-0 text-base font-normal text-[#D97757]">
-                04
-              </span>
-              <div>
-                <h3 className="mb-2 text-lg font-normal leading-tight text-[#FAFAF9]">
-                  Ship
+            <Card className="border-border/40 bg-card/30">
+              <CardContent className="pt-6">
+                <h3 className="mb-3 text-lg font-medium text-foreground">
+                  Craft over speed
                 </h3>
-                <p className="text-base leading-[1.7] text-[#737373]">
-                  Reliable software that works. No excuses, no broken promises.
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  Quality takes time. We don't ship fast and break things. We ship when it's ready,
+                  when it's reliable, when it meets our standards. Your workflow deserves better than perpetual beta.
                 </p>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
-        {/* CLOSING STATEMENT */}
-        <section className="py-8">
-          <p className="mb-8 text-lg leading-[1.7] text-[#A3A3A3]">
-            We build tools for people who value precision over popularity,
-            reliability over rapid releases, and clarity over complexity.
-          </p>
+        <Separator className="my-16 sm:my-24" />
 
-          <Link
-            href="/products"
-            className="inline-flex items-center text-base text-[#D97757] transition-colors hover:text-[#E89873]"
-          >
-            View our products
-            <svg
-              className="ml-2 h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </Link>
+        {/* TEAM/FOUNDER SECTION */}
+        <section className="mb-16 sm:mb-24">
+          <h2 className="mb-8 text-2xl font-light tracking-tight text-foreground">
+            Who We Are
+          </h2>
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            Firmis Labs is a small, deliberate team of engineers and designers who've spent years
+            building software for others. We started this studio to build the tools we wished existed—tools
+            that respect our time, match our workflows, and don't compromise on quality.
+          </p>
+        </section>
+
+        <Separator className="my-16 sm:my-24" />
+
+        {/* CTA TO CONTACT */}
+        <section className="py-8">
+          <div className="space-y-6">
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              We're building tools for people who value precision, reliability, and clarity.
+              If that resonates with you, we'd like to hear from you.
+            </p>
+
+            <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:gap-6">
+              <Link
+                href="/products"
+                className="inline-flex items-center text-base font-medium text-primary transition-colors hover:text-primary/80"
+              >
+                View our products
+                <svg
+                  className="ml-2 h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center text-base font-medium text-primary transition-colors hover:text-primary/80"
+              >
+                Get in touch
+                <svg
+                  className="ml-2 h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
         </section>
       </div>
     </div>
