@@ -1,55 +1,52 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Cormorant_Garamond } from "next/font/google";
+import { Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://firmislabs.com"),
   title: {
-    default: "Firmis Labs — Precision-Built Software",
+    default: "Firmis Labs — Precision Software Studio",
     template: "%s | Firmis Labs",
   },
   description:
-    "A multi-product studio crafting focused tools for clarity, security, and productivity. Precision-built software for modern workflows.",
+    "We build engineering-led, research-driven SaaS. Precision tools for professionals in underserved markets.",
   keywords: [
     "software studio",
     "precision software",
-    "workflow automation",
     "professional tools",
-    "engineering craft",
+    "engineering",
   ],
   authors: [{ name: "Firmis Labs" }],
   creator: "Firmis Labs",
-  publisher: "Firmis Labs",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://firmislabs.com",
     siteName: "Firmis Labs",
-    title: "Firmis Labs — Precision-Built Software",
+    title: "Firmis Labs — Precision Software Studio",
     description:
-      "A multi-product studio crafting focused tools for clarity, security, and productivity.",
+      "We build engineering-led, research-driven SaaS. Precision tools for professionals.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Firmis Labs — Precision-Built Software",
+    title: "Firmis Labs — Precision Software Studio",
     description:
-      "A multi-product studio crafting focused tools for clarity, security, and productivity.",
+      "We build engineering-led, research-driven SaaS. Precision tools for professionals.",
   },
   robots: {
     index: true,
@@ -63,10 +60,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakarta.variable} ${cormorant.variable}`}>
-      <body className="antialiased">
+    <html lang="en" className={`${inter.variable} ${ibmPlexMono.variable}`}>
+      <body className="font-sans antialiased bg-[#fafaf9]">
         <Header />
-        <main>{children}</main>
+        <main className="pt-16">{children}</main>
         <Footer />
       </body>
     </html>

@@ -1,278 +1,230 @@
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
+import { ArrowRight, Gauge, Layers, BarChart3, Calendar, Shield } from 'lucide-react'
+
+const philosophyFeatures = [
+  {
+    icon: Gauge,
+    title: 'Anti-Bloat',
+    description:
+      'Focused tools that do exactly what is needed. Clear pathways, minimal surface area, zero distractions.',
+  },
+  {
+    icon: Layers,
+    title: 'Engineering-Led',
+    description:
+      'Architecture first. Instrumentation, observability, and performance budgets are part of the product—not afterthoughts.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Clear Signals',
+    description:
+      'Interfaces built for decision makers: dense with signal, lean on decoration, and always readable.',
+  },
+]
+
+const products = [
+  {
+    name: 'SessionBank',
+    tagline: 'Calendar and payment sync for specialists.',
+    description:
+      'Automated invoicing that follows your schedule without additional overhead.',
+    status: 'Available',
+    category: 'Productivity',
+    icon: Calendar,
+    href: '/products',
+  },
+  {
+    name: 'LinkTransparency',
+    tagline: 'Strip the mystery out of every URL.',
+    description:
+      'See redirects, tracking, and destinations before you click.',
+    status: 'Chrome',
+    category: 'Privacy',
+    icon: Shield,
+    href: '/products',
+  },
+]
+
+const principles = [
+  'Architecture-first builds with instrumentation baked in from day one',
+  'Interfaces tuned for professional focus: concise copy, confident spacing, immediate clarity',
+  'Release discipline that favors reliable velocity over feature bloat',
+]
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* HERO SECTION */}
-      <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden px-6 py-32">
-        <div className="relative z-10 mx-auto max-w-6xl text-center">
-          <h1
-            className="hero-headline mb-8 font-medium leading-[1.1] tracking-tight text-foreground"
-            style={{
-              fontSize: 'clamp(2.5rem, 2rem + 4vw, 4.5rem)',
-            }}
-          >
-            Precision software for modern workflows
-          </h1>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="pt-12 pb-20 md:pt-16 md:pb-28 bg-[#fafaf9]">
+        <div className="mx-auto max-w-6xl px-8 lg:px-12">
+          <div className="space-y-10">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-medium tracking-wide text-slate-600 shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+              Firmis Labs · Precision Software
+            </div>
 
-          <p className="hero-subheadline mx-auto mb-12 max-w-2xl text-xl leading-relaxed text-muted-foreground md:text-2xl">
-            Building focused tools that solve real problems. No clutter, no compromise.
-          </p>
+            {/* Two-column layout */}
+            <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+              {/* Left column - Title + description + CTAs */}
+              <div className="space-y-8">
+                <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
+                  Precision tools for teams who can&apos;t afford noise.
+                </h1>
+                <p className="max-w-xl text-lg leading-relaxed text-slate-600">
+                  We build calm, engineering-led products with clear signals and zero filler.
+                  Every release is tuned for speed, reliability, and decision quality.
+                </p>
+                <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2"
+                  >
+                    Start a project
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link
+                    href="/products"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-medium text-slate-950 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2"
+                  >
+                    View products
+                  </Link>
+                </div>
+              </div>
 
-          <div className="hero-ctas flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              asChild
-              size="lg"
-              className="bg-[#D97757] px-10 text-base font-semibold hover:bg-[#E08B6D]"
-            >
-              <Link href="#products">Explore Products</Link>
-            </Button>
-
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="px-10 text-base font-semibold"
-            >
-              <Link href="#approach">Our Approach</Link>
-            </Button>
+              {/* Right column - Principles card */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600">
+                  Studio Principles
+                </p>
+                <ul className="mt-6 space-y-5">
+                  {principles.map((principle, index) => (
+                    <li key={index} className="flex gap-3 text-sm leading-relaxed text-slate-600">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300" />
+                      {principle}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* PRODUCTS SECTION */}
-      <section id="products" className="relative px-6 py-32 md:py-40">
-        <div className="mx-auto max-w-7xl">
-          <div className="products-header mb-20 text-center">
-            <Badge
-              variant="secondary"
-              className="mb-3 text-sm uppercase tracking-widest"
-            >
+      {/* Philosophy Section */}
+      <section className="border-t border-slate-200 bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-8 lg:px-12">
+          {/* Section header */}
+          <div className="mb-14 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600">
+                Philosophy
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                The discipline behind every build.
+              </h2>
+            </div>
+            <p className="max-w-lg text-sm leading-relaxed text-slate-600 md:text-right">
+              Calm product design, reliable engineering, and signals you can act on.
+              No distracting motion or filler features—only what moves the metric.
+            </p>
+          </div>
+
+          {/* Feature cards */}
+          <div className="grid gap-8 md:grid-cols-3">
+            {philosophyFeatures.map((feature) => (
+              <article
+                key={feature.title}
+                className="group rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg"
+              >
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-teal-600 transition-colors duration-200 group-hover:border-teal-200 group-hover:bg-teal-50">
+                  <feature.icon className="h-5 w-5" />
+                </div>
+                <h3 className="text-lg font-semibold text-slate-950">{feature.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  {feature.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Products Section */}
+      <section className="border-t border-slate-200 bg-[#fafaf9] py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-8 lg:px-12">
+          {/* Section header */}
+          <div className="mb-14">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600">
               Products
-            </Badge>
-            <h2
-              className="font-medium tracking-tight text-foreground"
-              style={{
-                fontSize: 'clamp(2rem, 1.5rem + 3vw, 3.5rem)',
-              }}
-            >
-              Tools built for practitioners
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+              Built for practitioners who value certainty.
             </h2>
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-slate-600">
+              Each product ships with a focused remit, crisp interfaces, and clear onboarding.
+            </p>
           </div>
 
-          <div className="products-grid grid gap-8 md:grid-cols-3">
-            {/* SessionBank */}
-            <Card className="product-card group border-border bg-card transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
-              <CardHeader>
-                <div className="mb-4 flex h-3 w-3 items-center justify-center">
-                  <div className="h-full w-full rounded-full bg-[#D97757]" />
-                </div>
-                <CardTitle className="text-2xl">SessionBank</CardTitle>
-                <CardDescription className="text-base leading-relaxed">
-                  Calendar and payment sync for professionals. Automated
-                  invoicing that follows your schedule.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link
-                  href="/products/sessionbank"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#D97757] transition-all duration-300 hover:gap-3"
-                >
-                  Learn more
-                  <svg
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </Link>
-              </CardContent>
-            </Card>
-
-            {/* LinkTransparency */}
-            <Card className="product-card group border-border bg-card transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
-              <CardHeader>
-                <div className="mb-4 flex h-3 w-3 items-center justify-center">
-                  <div className="h-full w-full rounded-full bg-[#D97757]" />
-                </div>
-                <CardTitle className="text-2xl">LinkTransparency</CardTitle>
-                <CardDescription className="text-base leading-relaxed">
-                  See where every link leads. Privacy-first transparency
-                  revealing redirects and tracking.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link
-                  href="/products/linktransparency"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#D97757] transition-all duration-300 hover:gap-3"
-                >
-                  Learn more
-                  <svg
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </Link>
-              </CardContent>
-            </Card>
-
-            {/* Thumbnail Tester */}
-            <Card className="product-card group border-border bg-card transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
-              <CardHeader>
-                <div className="mb-4 flex h-3 w-3 items-center justify-center">
-                  <div className="h-full w-full rounded-full bg-[#D97757]" />
-                </div>
-                <CardTitle className="text-2xl">Thumbnail Tester</CardTitle>
-                <CardDescription className="text-base leading-relaxed">
-                  A/B test before you publish. Data-driven thumbnail
-                  optimization for content creators.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link
-                  href="/products/thumbnail-tester"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#D97757] transition-all duration-300 hover:gap-3"
-                >
-                  Learn more
-                  <svg
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </Link>
-              </CardContent>
-            </Card>
+          {/* Product cards */}
+          <div className="grid gap-8 md:grid-cols-3">
+            {products.map((product) => (
+              <Link
+                key={product.name}
+                href={product.href}
+                className="group block"
+              >
+                <article className="h-full rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg">
+                  <div className="mb-5 flex items-center gap-3">
+                    <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">
+                      {product.status}
+                    </span>
+                    <span className="text-xs font-medium uppercase tracking-wide text-teal-600">
+                      {product.category}
+                    </span>
+                  </div>
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-colors duration-200 group-hover:border-teal-200 group-hover:bg-teal-50 group-hover:text-teal-600">
+                    <product.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-slate-950">{product.name}</h3>
+                  <p className="mt-2 text-sm font-medium text-slate-700">{product.tagline}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                    {product.description}
+                  </p>
+                </article>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* APPROACH SECTION */}
-      <section id="approach" className="relative px-6 py-32 md:py-40">
-        <div className="mx-auto max-w-7xl">
-          <div className="approach-header mb-20 text-center">
-            <Badge
-              variant="secondary"
-              className="mb-3 text-sm uppercase tracking-widest"
-            >
-              How we build
-            </Badge>
-            <h2
-              className="font-medium tracking-tight text-foreground"
-              style={{
-                fontSize: 'clamp(2rem, 1.5rem + 3vw, 3.5rem)',
-              }}
-            >
-              Our process
-            </h2>
-          </div>
-
-          <Separator className="mb-12" />
-
-          <div className="approach-grid grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-            {/* Research */}
-            <div className="approach-step group">
-              <div className="mb-4 text-5xl font-medium text-[#D97757]">01</div>
-              <h3 className="mb-3 text-xl font-medium text-foreground">
-                Research
-              </h3>
-              <p className="leading-relaxed text-muted-foreground">
-                Deep understanding of real workflows and pain points. We listen
-                before we build.
-              </p>
-            </div>
-
-            {/* Build */}
-            <div className="approach-step group">
-              <div className="mb-4 text-5xl font-medium text-[#D97757]">02</div>
-              <h3 className="mb-3 text-xl font-medium text-foreground">
-                Build
-              </h3>
-              <p className="leading-relaxed text-muted-foreground">
-                Focused solutions that solve specific problems. Every feature
-                earns its place.
-              </p>
-            </div>
-
-            {/* Iterate */}
-            <div className="approach-step group">
-              <div className="mb-4 text-5xl font-medium text-[#D97757]">03</div>
-              <h3 className="mb-3 text-xl font-medium text-foreground">
-                Iterate
-              </h3>
-              <p className="leading-relaxed text-muted-foreground">
-                Continuous refinement based on real feedback. Better every day.
-              </p>
-            </div>
-
-            {/* Ship */}
-            <div className="approach-step group">
-              <div className="mb-4 text-5xl font-medium text-[#D97757]">04</div>
-              <h3 className="mb-3 text-xl font-medium text-foreground">Ship</h3>
-              <p className="leading-relaxed text-muted-foreground">
-                Reliable software that works. No endless betas. Just tools that
-                deliver.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA SECTION */}
-      <section className="relative px-6 py-32 md:py-40">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2
-            className="cta-headline mb-6 font-medium tracking-tight text-foreground"
-            style={{
-              fontSize: 'clamp(2rem, 1.5rem + 3vw, 3.5rem)',
-            }}
-          >
-            Ready to work with precision tools?
-          </h2>
-
-          <p className="cta-subheadline mb-10 text-xl leading-relaxed text-muted-foreground">
-            Join professionals who demand excellence from their software.
+      {/* CTA Section */}
+      <section className="border-t border-slate-200 bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-8 lg:px-12 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-600">
+            Work With Us
           </p>
-
-          <Button
-            asChild
-            size="lg"
-            className="cta-button bg-[#D97757] px-12 text-base font-semibold hover:bg-[#E08B6D]"
-          >
-            <Link href="#products">Get Started</Link>
-          </Button>
+          <h2 className="mt-5 text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+            Join professionals who demand excellence from their software.
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
+            Calm, considered builds with measurable impact. Let&apos;s scope the next release together.
+          </p>
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2"
+            >
+              Start a conversation
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/about"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-medium text-slate-950 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2"
+            >
+              Read our philosophy
+            </Link>
+          </div>
         </div>
       </section>
     </div>

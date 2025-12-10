@@ -1,124 +1,60 @@
 import Link from 'next/link'
-import { Separator } from '@/components/ui/separator'
-import { cn } from '@/lib/utils'
-
-const navigation = {
-  products: [
-    { name: 'SessionBank', href: '/products/sessionbank' },
-    { name: 'LinkTransparency', href: '/products/linktransparency' },
-    { name: 'Thumbnail Tester', href: '/products/thumbnail-tester' },
-  ],
-  company: [
-    { name: 'About', href: '/about' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
-  ],
-  legal: [
-    { name: 'Privacy', href: '/privacy' },
-    { name: 'Terms', href: '/terms' },
-  ],
-}
+import Logo from './Logo'
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="bg-background" role="contentinfo">
-      <Separator />
+    <footer className="border-t border-slate-200 bg-white">
+      <div className="mx-auto max-w-6xl px-8 lg:px-12">
+        {/* Main footer content */}
+        <div className="py-14 md:py-20">
+          <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+            {/* Logo and tagline */}
+            <div className="space-y-5">
+              <Link href="/" className="inline-flex items-center gap-2.5 group">
+                <Logo size={24} className="text-slate-950 transition-transform group-hover:scale-105" />
+                <span className="text-base font-semibold text-slate-950">Firmis Labs</span>
+              </Link>
+              <p className="max-w-sm text-sm leading-relaxed text-slate-600">
+                Precision tools for professionals. Building the future of work.
+              </p>
+            </div>
 
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-3">
-            <Link
-              href="/"
-              className={cn(
-                'inline-block text-lg font-medium tracking-tight',
-                'text-foreground transition-colors hover:text-muted-foreground'
-              )}
-            >
-              firmis labs
-            </Link>
-            <p className="text-sm text-muted-foreground max-w-xs">
-              Precision engineering for modern software systems
-            </p>
+            {/* Navigation links */}
+            <nav className="flex flex-wrap gap-x-8 gap-y-4 text-sm">
+              <Link
+                href="/products"
+                className="font-medium text-slate-600 transition-colors hover:text-teal-600"
+              >
+                Products
+              </Link>
+              <Link
+                href="/about"
+                className="font-medium text-slate-600 transition-colors hover:text-teal-600"
+              >
+                About
+              </Link>
+              <Link
+                href="/blog"
+                className="font-medium text-slate-600 transition-colors hover:text-teal-600"
+              >
+                Journal
+              </Link>
+              <Link
+                href="/contact"
+                className="font-medium text-slate-600 transition-colors hover:text-teal-600"
+              >
+                Contact
+              </Link>
+            </nav>
           </div>
-
-          <nav aria-labelledby="footer-products">
-            <h3
-              id="footer-products"
-              className="text-xs font-medium uppercase tracking-wider text-muted-foreground"
-            >
-              Products
-            </h3>
-            <ul className="mt-4 space-y-2" role="list">
-              {navigation.products.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      'text-sm text-muted-foreground transition-colors',
-                      'hover:text-foreground'
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <nav aria-labelledby="footer-company">
-            <h3
-              id="footer-company"
-              className="text-xs font-medium uppercase tracking-wider text-muted-foreground"
-            >
-              Company
-            </h3>
-            <ul className="mt-4 space-y-2" role="list">
-              {navigation.company.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      'text-sm text-muted-foreground transition-colors',
-                      'hover:text-foreground'
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <nav aria-labelledby="footer-legal">
-            <h3
-              id="footer-legal"
-              className="text-xs font-medium uppercase tracking-wider text-muted-foreground"
-            >
-              Legal
-            </h3>
-            <ul className="mt-4 space-y-2" role="list">
-              {navigation.legal.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      'text-sm text-muted-foreground transition-colors',
-                      'hover:text-foreground'
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
         </div>
 
-        <Separator className="my-8" />
-
-        <div className="flex flex-col-reverse items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} firmis labs. All rights reserved.
+        {/* Copyright bar */}
+        <div className="border-t border-slate-200 py-8">
+          <p className="text-sm text-slate-600">
+            &copy; {currentYear} Firmis Labs, Inc. All rights reserved.
           </p>
         </div>
       </div>
